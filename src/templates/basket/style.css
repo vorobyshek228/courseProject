@@ -1,0 +1,31 @@
+
+ul {
+    list-style-type: none;
+  }
+
+html{
+    background-color: blueviolet;
+} 
+
+.basket-wraper{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+  } 
+ 
+.shopping-list{
+    padding-left: 0;
+
+}
+.total-price{
+    border-top: 1px solid gray;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.shopping-list__item .price {
+    color: gray;
+    text-decoration: line-through;
+    font-size: 0.8rem;
+}
+
