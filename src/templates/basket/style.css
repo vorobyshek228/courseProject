@@ -11,7 +11,36 @@ html{
     background-color: white;
     padding: 20px;
     border-radius: 20px;
+    max-width: 300px;
+
   } 
+ .basket-header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+ } 
+  .btnClearBasket {
+    min-width: 100px;
+    font-family: inherit;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #d74646;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .btnClearBasket:hover {
+    background: #aa1d1d;
+  }
+  
+  .btnClearBasket:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #dcb4f7;
+  }
  
 .shopping-list{
     padding-left: 0;
@@ -21,6 +50,7 @@ html{
     border-top: 1px solid gray;
     padding-top: 1rem;
     font-size: 1.2rem;
+    text-align: right;
 }
 
 .shopping-list__item .price {
