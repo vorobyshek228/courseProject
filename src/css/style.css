@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .goods-aera {
   display: flex;
   align-content: center;
@@ -18,6 +19,7 @@
   background: url("/src/img/test.png");
   background-position: center;
   background-size: cover;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .goods-aera .goods-card img {
   border-radius: 15px;
@@ -53,6 +55,27 @@
   border-radius: 50%;
   border-width: 1px;
   transition: 0.4s;
+}
+.goods-aera .goods-card button::after {
+  width: 70px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  content: "Добавить в корзину"; /* Главная часть кода, определяющая содержимое всплывающей подсказки */
+  margin-top: 0px;
+  opacity: 0; /* Наш элемент прозрачен... */
+  padding: 8px;
+  position: absolute;
+  bottom: -5px;
+  left: 35px;
+  visibility: hidden; /* ...и скрыт. */
+  z-index: 2;
+  transition: all 0.4s ease-in-out; /* Добавить плавности по вкусу */
+}
+.goods-aera .goods-card button:hover::after {
+  visibility: visible;
+  opacity: 1;
 }
 .goods-aera .goods-card button:hover {
   background-color: blue;
