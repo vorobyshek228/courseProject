@@ -13,15 +13,34 @@
   margin-bottom: 6em;
 }
 .goods-aera .goods-card .goods-card--img {
+  position: relative;
   border-radius: 15px;
   height: 100%;
   width: 100%;
-  background: url("/src/img/test.png");
-  background-position: center;
-  background-size: cover;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
-.goods-aera .goods-card img {
+.goods-aera .goods-card .card-button {
+  position: absolute;
+  width: 70%;
+  left: 0;
+  bottom: 70px;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin: 15%;
+  transition: 0.4s;
+  opacity: 0.8;
+  visibility: hidden;
+  border-color: grey;
+}
+.goods-aera .goods-card .card-button:hover {
+  opacity: 1;
+  visibility: visible;
+}
+.goods-aera .goods-card .goods-card--img:hover + .card-button {
+  visibility: visible;
+}
+.goods-aera .goods-card .goods-card--pricing {
+  position: relative;
   border-radius: 15px;
   height: 100%;
   width: 100%;
@@ -46,7 +65,7 @@
 .goods-aera .goods-card .goods-card--image-info {
   margin-bottom: -3em;
 }
-.goods-aera .goods-card button {
+.goods-aera .goods-card .busket-button {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -56,30 +75,30 @@
   border-width: 1px;
   transition: 0.4s;
 }
-.goods-aera .goods-card button::after {
+.goods-aera .goods-card .busket-button::after {
   width: 70px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   color: #FFF;
-  content: "Добавить в корзину"; /* Главная часть кода, определяющая содержимое всплывающей подсказки */
+  content: "Добавить в корзину";
   margin-top: 0px;
-  opacity: 0; /* Наш элемент прозрачен... */
+  opacity: 0;
   padding: 8px;
   position: absolute;
   bottom: -5px;
   left: 35px;
-  visibility: hidden; /* ...и скрыт. */
+  visibility: hidden;
   z-index: 2;
-  transition: all 0.4s ease-in-out; /* Добавить плавности по вкусу */
+  transition: all 0.4s ease-in-out;
 }
-.goods-aera .goods-card button:hover::after {
+.goods-aera .goods-card .busket-button:hover::after {
   visibility: visible;
   opacity: 1;
 }
-.goods-aera .goods-card button:hover {
+.goods-aera .goods-card .busket-button:hover {
   background-color: blue;
 }
-.goods-aera .goods-card button:active {
+.goods-aera .goods-card .busket-button:active {
   background-color: aqua;
 }/*# sourceMappingURL=style.css.map */

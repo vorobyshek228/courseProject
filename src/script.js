@@ -43,4 +43,4 @@ var addZoom = (target) => {
   };
    
   // (C) ATTACH FOLLOW ZOOM
-  window.onload = () => { addZoom(".goods-card--img"); };
+ // window.onload = () => { addZoom(".goods-card--img"); };
