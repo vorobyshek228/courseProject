@@ -1,6 +1,6 @@
-import {btnBasket, modalBasket, btnClearBasket, totalPriceValue} from './modules/basket.js'; 
+import {btnBasket, modalBasket, btnClearBasket, totalPriceValue, shoppingList} from './modules/basket.js'; 
 
-const goodsArr = [
+let goodsArr = [
     {
         id:1,
         name:"Шорты",
@@ -107,9 +107,8 @@ const goodsArr = [
     
     }    
 ]
-
-const basketArr = [];
-
+let basketArr = [];
+let searchArr= [];
 const goodsAera = document.querySelector('.goods-aera');
 
 
@@ -152,18 +151,17 @@ const renderCard = function (item) {
             totalPrice.innerHTML= "";
             basketArr.forEach(item => {
                 const li = document.createElement("li");
-                    li.classList.add("price");
                 const name = document.createElement("span");
                     name.classList.add("name");
                     name.textContent = `${item.name} `
                 const price = document.createElement("span");
                     price.classList.add("price");
                     price.textContent = `${item.price} р. ` ;
-                const diskont = document.createElement("span");
-                    diskont.classList.add("diskont");
-                    diskont.textContent = `${item.price - (item.price * item.diskont / 100)} р.` ;
+                const userPrice = document.createElement("span");
+                    userPrice.classList.add("userPrice");
+                    userPrice.textContent = ` ${item.price - (item.price * item.diskont / 100)} р.` ;
                 shoppingList.append(li);
-                li.append(name, price, diskont)
+                li.append(name, price, userPrice);
             })
             let totalPriceValue = 0;
             for(let i = 0; i < basketArr.length; i++){
@@ -182,8 +180,35 @@ const renderCard = function (item) {
   
     }
 
-goodsArr.forEach(element => {
-    renderCard(element);
+const createCardsAera = function(arr){  
+    arr.forEach(element => renderCard(element));
+}
+
+btnClearBasket.addEventListener("click", function(){
+    shoppingList.innerHTML = "";
+    totalPriceValue.innerHTML = `<strong>Итого: <span class="total"></span>0 р.</strong>`;
+    basketArr.length = 0;
+    console.log(basketArr);
 });
 
+const searchForMain = function (){
+    const slidder = document.querySelector('.slider');
 
+    if( (this.value === "") || (this.value === " ")){
+        createCardsAera(goodsArr);
+        slidder.style.display = "flex";
+    } else{
+        slidder.style.display = "none";
+        searchArr.length = 0;
+        searchArr = goodsArr.filter(item => item.name.includes(this.value.trim()));
+        goodsAera.innerHTML="";
+        createCardsAera(searchArr);
+    }
+}
+
+
+const inputSearch = document.querySelector('#search');
+inputSearch.addEventListener("keyup", searchForMain);
+
+
+createCardsAera(goodsArr);
