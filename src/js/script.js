@@ -110,6 +110,17 @@ const goods[
 
 const goodsAera = document.querySelector('.goods-aera');
 
+const renderCard = function (item) {
+    let card = document.createElement("div");
+        card.classList.add("card");
+        card.setAttribute("data-id", item.id);
+
+
+        cardsAera.append(card);
+        card.append(cardStatusWraper, cardText, cardCloseButton, cardDate); 
+        cardStatusWraper.append(cardStatusSpan, cardStatus);
+    }
+
 // goods.forEach(element => {
 //     const 
 // });
