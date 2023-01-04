@@ -1,6 +1,6 @@
 import {btnBasket, modalBasket, btnClearBasket} from './modules/basket.js'; 
 
-const goods[
+const goods = [
     {
         id:1,
         name:"Шорты",
@@ -110,17 +110,39 @@ const goods[
 
 const goodsAera = document.querySelector('.goods-aera');
 
+
 const renderCard = function (item) {
-    let card = document.createElement("div");
-        card.classList.add("card");
-        card.setAttribute("data-id", item.id);
+    let figure = document.createElement("figure");
+        figure.classList.add("goods-card");
+        figure.setAttribute("data-id", item.id);
 
+    let img = document.createElement("img");
+        img.classList.add("goods-card--img");
+        img.setAttribute("src", item.imgUrl);
 
-        cardsAera.append(card);
-        card.append(cardStatusWraper, cardText, cardCloseButton, cardDate); 
-        cardStatusWraper.append(cardStatusSpan, cardStatus);
+    let imgBtn = document.createElement("button");
+        imgBtn.classList.add("card-button");
+        imgBtn.textContent = 'Быстрый просмотр';
+
+    let figcaption = document.createElement("figcaption");
+
+    let pricing = document.createElement("p");
+        pricing.classList.add("goods-card--pricing");
+        pricing.innerHTML = `<span class="price">${item.price} BYN</span>  <span class="user-price">${item.price - (item.price * item.diskont / 100)} BYN</span>`;
+
+    let title = document.createElement("p");
+        title.classList.add("goods-card--title");
+        title.innerHTML = `<span class="name">${item.name}</span>`;
+    let imageInfo = document.createElement("div");
+        imageInfo.classList.add("goods-card--title");
+        imageInfo.innerHTML = `<button class="busket-button">+</button><span class="diskont">-${item.diskont}%</span>`
+        goodsAera.append(figure);
+        figure.append(img,imgBtn,figcaption); 
+        figcaption.append(pricing, title, imageInfo)
+
     }
 
-// goods.forEach(element => {
-//     const 
-// });
+goods.forEach(element => {
+    renderCard(element);
+});
+
