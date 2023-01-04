@@ -6,6 +6,7 @@
 
 ._wrapper {
   margin: 10px auto;
+  max-width: 1650px;
 }
 
 .header {
@@ -41,6 +42,12 @@
 .header dialog::backdrop {
   background-color: hsl(0deg, 0%, 0%);
   opacity: 0.2;
+}
+.header .dialog {
+  padding: 0.5rem;
+}
+.header .dialog-wrapper {
+  padding: 1rem;
 }
 
 .slider {
@@ -116,7 +123,7 @@
 .goods-aera .goods-card .goods-card--image-info {
   margin-bottom: -3em;
 }
-.goods-aera .goods-card .busket-button {
+.goods-aera .goods-card .goods-card-busket-button {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -126,7 +133,7 @@
   border-width: 1px;
   transition: 0.4s;
 }
-.goods-aera .goods-card .busket-button::after {
+.goods-aera .goods-card .goods-card-busket-button::after {
   width: 70px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
@@ -143,13 +150,13 @@
   z-index: 2;
   transition: all 0.4s ease-in-out;
 }
-.goods-aera .goods-card .busket-button:hover::after {
+.goods-aera .goods-card .goods-card-busket-button:hover::after {
   visibility: visible;
   opacity: 1;
 }
-.goods-aera .goods-card .busket-button:hover {
+.goods-aera .goods-card .goods-card-busket-button:hover {
   background-color: blue;
 }
-.goods-aera .goods-card .busket-button:active {
+.goods-aera .goods-card .goods-card-busket-button:active {
   background-color: aqua;
 }/*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@
 
 ._wrapper{
     margin: 10px auto;
-
+    max-width: 1650px;
 }
 .header{
     display: flex;
@@ -38,8 +38,17 @@
         &::backdrop{
             background-color: hsl(0, 0, 0);
             opacity: .2;
+            
         }
         
+    }
+    .dialog {
+      padding: 0.5rem;
+    }
+    
+    .dialog-wrapper {
+      
+      padding: 1rem;
     }
 }
 
@@ -120,7 +129,7 @@
       margin-bottom: -3em;
     }
 
-    .busket-button{
+    .goods-card-busket-button{
       position: absolute;
       bottom: 10px;
       right: 10px;

@@ -7,9 +7,19 @@ btnBasket.addEventListener('click', function(){
 
 export const btnClearBasket = document.querySelector('.btnClearBasket');
 export const shoppingList = document.querySelector('.shopping-list');
-export const totalPriceValue = document.querySelector('.total');
+export const totalPriceValue = document.querySelector('#total-price');
 
 btnClearBasket.addEventListener("click", function(){
     shoppingList.innerHTML = "";
-    totalPriceValue.innerHTML = "0";
+    totalPriceValue.innerHTML = `<strong>Итого: <span class="total"></span>0 р.</strong>`;
 });
+
+modalBasket.addEventListener("click", closeOnBackDropClick);
+
+function closeOnBackDropClick({ currentTarget, target }) {
+  const dialogElement = currentTarget;
+  const isClickedOnBackDrop = target === dialogElement
+  if (isClickedOnBackDrop) {
+    dialogElement.close();
+  }
+}

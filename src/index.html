@@ -13,18 +13,17 @@
         <input type="text" placeholder="Поиск...">
         <button id="btnBasket"><h2>Корзина</h2></button>
 
-        <dialog id="modalBasket" class="basket basket-wraper">
+        <dialog id="modalBasket" class="dialog">
+            <div class="basket basket-wraper dialog-wraper">
                 <div class="basket-header">
                     <strong>Корзина</strong>
                     <button class="btnClearBasket">Очистить корзину</button>
                 </div>
-                <ul class="basket__items shopping-list">
-                    <li class="shopping-list__item"><span class="name">Шорты</span> <span class="price">10 р.</span> <span class="diskont">9 р.</span></li>
-                    <li class="shopping-list__item"><span class="name">Шорты</span> <span class="price">10 р.</span> <span class="diskont">9 р.</span></li>
-                    <li class="shopping-list__item"><span class="name">Шорты</span> <span class="price">10 р.</span> <span class="diskont">9 р.</span></li>
-                    <li class="shopping-list__item"><span class="name">Шорты</span> <span class="price">10 р.</span> <span class="diskont">9 р.</span></li>
+                <ul id="shopping-list" class="basket__items shopping-list">
+
                 </ul>
-                <div class="basket__items total-price"><strong>Итого: <span class="total">36</span> р.</strong></div>
+                <div id="total-price" class="basket__items total-price"><strong>Итого: <span class="total"></span>0 р.</strong></div>
+            </div>
         </dialog>
         
     </header>
