@@ -1,4 +1,5 @@
-.goods-aera, .slider {
+@charset "UTF-8";
+.slider {
   min-height: 200px;
   border-radius: 15px;
 }
@@ -51,5 +52,105 @@
 }
 
 .goods-aera {
-  background-color: brown;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.goods-aera .goods-card {
+  width: 180px;
+  height: 240px;
+  position: relative;
+  margin-bottom: 6em;
+}
+.goods-aera .goods-card .goods-card--img {
+  position: relative;
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.goods-aera .goods-card .card-button {
+  position: absolute;
+  width: 70%;
+  left: 0;
+  bottom: 70px;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin: 15%;
+  transition: 0.2s;
+  opacity: 0.8;
+  visibility: hidden;
+  border-color: grey;
+}
+.goods-aera .goods-card .card-button:hover {
+  opacity: 1;
+  visibility: visible;
+}
+.goods-aera .goods-card .goods-card--img:hover + .card-button {
+  visibility: visible;
+}
+.goods-aera .goods-card .goods-card--pricing {
+  position: relative;
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.goods-aera .goods-card .goods-card--pricing {
+  display: flex;
+}
+.goods-aera .goods-card .price {
+  text-decoration: line-through;
+  color: grey;
+  margin-right: auto;
+}
+.goods-aera .goods-card .user-price {
+  margin-left: auto;
+}
+.goods-aera .goods-card .diskont {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.goods-aera .goods-card .goods-card--image-info {
+  margin-bottom: -3em;
+}
+.goods-aera .goods-card .busket-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border-width: 1px;
+  transition: 0.4s;
+}
+.goods-aera .goods-card .busket-button::after {
+  width: 70px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  content: "Добавить в корзину";
+  margin-top: 0px;
+  opacity: 0;
+  padding: 8px;
+  position: absolute;
+  bottom: -5px;
+  left: 35px;
+  visibility: hidden;
+  z-index: 2;
+  transition: all 0.4s ease-in-out;
+}
+.goods-aera .goods-card .busket-button:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+.goods-aera .goods-card .busket-button:hover {
+  background-color: blue;
+}
+.goods-aera .goods-card .busket-button:active {
+  background-color: aqua;
 }/*# sourceMappingURL=style.css.map */
