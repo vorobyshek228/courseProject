@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -27,9 +28,55 @@
         </dialog>
         
     </header>
-    <section class="slider _wrapper">
-        <p>Slider</p>
+    <section id="slider_bl" class="slider _wrapper">
+        <div class="wrapper">
+            <input checked type=radio name="slider" id="slide1" />
+            <input type=radio name="slider" id="slide2" />
+            <input type=radio name="slider" id="slide3" />
+            <input type=radio name="slider" id="slide4" />
+            <div class="slider-wrapper">
+              <div class=inner>
+                <article>
+                  <div class="info top-left">
+                  </div>
+                  <img src="./img/big_best_1912.jpg" />
+                </article>
+                <article>
+                  <div class="info bottom-right">
+                  </div>
+                  <img src="./img/big_cosmetics1.jpg" />
+                </article>
+                <article>
+                  <div class="info bottom-left">
+                  </div>
+                  <img src="./img/big_delivery_14_12_22.jpg" />
+                </article>
+                <article>
+                  <div class="info top-right">
+                  </div>
+                  <img src="./img/big_toys.jpg" />
+                </article>
+              <article>
+              </div>
+            </div>
+            <div class="slider-prev-next-control">
+              <label for=slide1></label>
+              <label for=slide2></label>
+              <label for=slide3></label>
+              <label for=slide4></label>
+            </div>
+            <div class="slider-dot-control">
+              <label for=slide1></label>
+              &nbsp;
+              <label for=slide2></label>
+              &nbsp;
+              <label for=slide3></label>
+              &nbsp;
+              <label for=slide4></label>
+            </div>
+          </div>
     </section>
+    
     <section class="goods-aera _wrapper"></section>
     <script src="js/script.js" type="module"></script>
 </body>
