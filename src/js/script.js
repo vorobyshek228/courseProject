@@ -58,16 +58,16 @@ const renderCard = function (item) {
                     price.textContent = `${Number(item.price)} р. ` ;
                 const userPrice = document.createElement("span");
                     userPrice.classList.add("userPrice");
-                    userPrice.textContent = ` ${Number(item.price) - Math.round10((Number(item.price) * Number(item.discount) / 100))} р.` ;
+                    userPrice.textContent = ` ${(item.price - (item.price * (item.discount / 100))).toFixed(2)} р.` ;
                 shoppingList.append(li);
                 li.append(name, price, userPrice);
             })
             let totalPriceValue = 0;
             for(let i = 0; i < basketArr.length; i++){
                 let item = basketArr[i];
-                totalPriceValue += item.price - (item.price * item.diskont / 100);
+                totalPriceValue += item.price - (item.price * item.discount / 100);
             }
-            totalPrice.innerHTML= `<strong>Итого: <span class="total">${totalPriceValue}</span> р.</strong>`;
+            totalPrice.innerHTML= `<strong>Итого: <span class="total">${totalPriceValue.toFixed(2)}</span> р.</strong>`;
         })
 
 
