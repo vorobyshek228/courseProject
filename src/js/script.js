@@ -1,5 +1,6 @@
 import {btnBasket, modalBasket, btnClearBasket, totalPriceValue, shoppingList} from './modules/basket.js'; 
 import {getData} from './modules/data.js';
+import {createCardsAera, goodsAera} from './modules/render-cards.js';
 
 let goodsArr = [];
 
@@ -11,144 +12,114 @@ let searchArr= [];
 
 let uiFlag = 0;
 
+const basketGoodsCounter = document.querySelector('#basketGoodsCounter');
+    basketGoodsCounter.style.display= "none";
+
 getData()
 .then(data =>  {
     goodsArr = data;
     main();
 })
 .catch(error => console.log(error));
+
 function main(){
-const goodsAera = document.querySelector('.goods-aera');
-const basketGoodsCounter = document.querySelector('#basketGoodsCounter');
-    basketGoodsCounter.style.display= "none";
+    topGoodsArr = goodsArr.slice(0,6);;
+    createCardsAera(topGoodsArr);
+    
+    window.addEventListener('wheel',topGoods);
+    
+    function topGoods(){
+        ++uiFlag;
+    
+        if(uiFlag > 6 && uiFlag < 18){
+            goodsAera.innerHTML="";
+            topGoodsArr = goodsArr.slice(0,12)
+            createCardsAera(topGoodsArr);
+        }
+    
+        if(uiFlag >= 18){
+            goodsAera.innerHTML="";
+            topGoodsArr = goodsArr.slice(0,18)
+            createCardsAera(topGoodsArr);
+        }
+    
+    };
 
+    
 
-const renderCard = function (item) {
-    let figure = document.createElement("figure");
-        figure.classList.add("goods-card");
-        figure.setAttribute("data-id", item.id);
-
-    let img = document.createElement("img");
-        img.classList.add("goods-card--img");
-        img.setAttribute("src", item.imgUrl);
-
-    let imgBtn = document.createElement("button");
-        imgBtn.classList.add("card-button");
-        imgBtn.textContent = 'Быстрый просмотр';
-
-    let figcaption = document.createElement("figcaption");
-
-    let pricing = document.createElement("p");
-        pricing.classList.add("goods-card--pricing");
-        pricing.innerHTML = `<span class="price">${item.price} BYN</span>  <span class="user-price">${(item.price - (item.price * item.discount / 100)).toFixed(2)} BYN</span>`;
-
-    let title = document.createElement("p");
-        title.classList.add("goods-card--title");
-        title.innerHTML = `<span class="name">${item.name}</span>`;
-    let imageInfo = document.createElement("div");
-        imageInfo.classList.add("goods-card--title");
-        imageInfo.innerHTML = `<span class="diskont">-${Number(item.discount)}%</span>`
-
-    let cardBusketButton = document.createElement("button");
-        cardBusketButton.classList.add("goods-card-busket-button");
-        cardBusketButton.textContent = '+';
-
-        cardBusketButton.addEventListener('click', function(){
-            basketArr.push(item)
-            const shoppingList = document.querySelector("#shopping-list");
-            const totalPrice = document.querySelector("#total-price");
-
-            basketGoodsCounter.style.display = "block";
-            basketGoodsCounter.textContent = basketArr.length;
-            shoppingList.innerHTML= "";
-            totalPrice.innerHTML= "";
-            basketArr.forEach(item => {
-                const li = document.createElement("li");
-                const name = document.createElement("span");
-                    name.classList.add("name");
-                    name.textContent = `${item.name} `
-                const price = document.createElement("span");
-                    price.classList.add("price");
-                    price.textContent = `${Number(item.price)} р. ` ;
-                const userPrice = document.createElement("span");
-                    userPrice.classList.add("userPrice");
-                    userPrice.textContent = ` ${(item.price - (item.price * (item.discount / 100))).toFixed(2)} р.` ;
-                shoppingList.append(li);
-                li.append(name, price, userPrice);
-            })
-            let totalPriceValue = 0;
-            for(let i = 0; i < basketArr.length; i++){
-                let item = basketArr[i];
-                totalPriceValue += item.price - (item.price * item.discount / 100);
-            }
-            totalPrice.innerHTML= `<strong>Итого: <span class="total">${totalPriceValue.toFixed(2)}</span> р.</strong>`;
-        })
-
-
-        goodsAera.append(figure);
-        figure.append(img,imgBtn,figcaption); 
-        figcaption.append(pricing, title, imageInfo)
-        imageInfo.append(cardBusketButton)
-
-  
+    const searchForMain = function (){
+        const slidder = document.querySelector('.slider');
+    
+        if( (this.value === "") || (this.value === " ")){
+            createCardsAera(topGoodsArr);
+            slidder.style.display = "flex";
+        } else{
+            slidder.style.display = "none";
+            searchArr.length = 0;
+            let paternU = this.value.toUpperCase();
+            let paternL = this.value.toLowerCase();
+            searchArr = goodsArr.filter(item => item.name.includes(paternU && paternL));
+            goodsAera.innerHTML="";
+            createCardsAera(searchArr);
+        }
     }
 
-const createCardsAera = function(arr){  
-    arr.forEach(element => renderCard(element));
-}
+    const searchForCategory = function (category){
+        const slidder = document.querySelector('.slider');
+            slidder.style.display = "none";
+            searchArr.length = 0;
+            searchArr = goodsArr.filter(item => item.category === category);
+            goodsAera.innerHTML="";
 
-btnClearBasket.addEventListener("click", function(){
-    shoppingList.innerHTML = "";
-    totalPriceValue.innerHTML = `<strong>Итого: <span class="total"></span>0 р.</strong>`;
-    basketArr.length = 0;
-    basketGoodsCounter.textContent = 0;
-    basketGoodsCounter.style.display= "none";
-});
+            window.removeEventListener('wheel', topGoods);
+            createCardsAera(searchArr);
+        
 
-const searchForMain = function (){
-    const slidder = document.querySelector('.slider');
+    }
+    
+    
+    const inputSearch = document.querySelector('#search');
+    inputSearch.addEventListener("keyup", searchForMain);
+    
+   
+    btnClearBasket.addEventListener("click", function(){
+        shoppingList.innerHTML = "";
+        totalPriceValue.innerHTML = `<strong>Итого: <span class="total"></span>0 р.</strong>`;
+        basketArr.length = 0;
+        basketGoodsCounter.textContent = 0;
+        basketGoodsCounter.style.display= "none";
+    });
+    
 
-    if( (this.value === "") || (this.value === " ")){
-        createCardsAera(goodsArr);
+    const btnCatalog = document.querySelector('#btnCatalog');;
+    btnCatalog.addEventListener('click', function(){
+        goodsAera.innerHTML="";
+        createCardsAera(topGoodsArr);
+
+        window.addEventListener('wheel',topGoods);
+        const slidder = document.querySelector('.slider');
         slidder.style.display = "flex";
-    } else{
-        slidder.style.display = "none";
-        searchArr.length = 0;
-        let paternU = this.value.toUpperCase();
-        let paternL = this.value.toLowerCase();
-        searchArr = goodsArr.filter(item => item.name.includes(paternU && paternL));
-        goodsAera.innerHTML="";
-        createCardsAera(searchArr);
-    }
+    })
+
+    const categoryMen = document.querySelector('#category-men');
+    const categoryWomen = document.querySelector('#category-women');
+    const categoryKids = document.querySelector('#category-kids');
+    const categoryMenu = document.querySelector('.checkbox');
+
+    categoryKids.addEventListener('click', function(){
+        console.log('kids');
+        searchForCategory('kid');
+        
+    })
+    categoryMen.addEventListener('click', function(){
+        console.log('men');
+        searchForCategory('men');
+    })
+    categoryWomen.addEventListener('click', function(){
+        console.log('women');
+        searchForCategory('women');
+    })
+
 }
 
 
-const inputSearch = document.querySelector('#search');
-inputSearch.addEventListener("keyup", searchForMain);
-
-
-topGoodsArr = goodsArr.slice(0,6);;
-createCardsAera(topGoodsArr);
-
-
-
-
-window.addEventListener('wheel',topGoods);
-
-function topGoods(){
-    ++uiFlag;
-
-    if(uiFlag > 6 && uiFlag < 18){
-        goodsAera.innerHTML="";
-        topGoodsArr = goodsArr.slice(0,12)
-        createCardsAera(topGoodsArr);
-    }
-
-    if(uiFlag >= 18){
-        goodsAera.innerHTML="";
-        topGoodsArr = goodsArr.slice(0,18)
-        createCardsAera(topGoodsArr);
-    }
-
-};
-}
