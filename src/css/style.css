@@ -79,7 +79,6 @@
   position: relative;
   border-radius: 15px;
   height: 100%;
-  width: 100%;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .goods-aera .goods-card .card-button {
@@ -241,7 +240,7 @@ header .header__wrapper {
   padding-top: 10px;
   display: flex;
   align-items: center;
-  width: 380px;
+  width: 330px;
   justify-content: space-around;
   padding-bottom: 20px;
 }
@@ -305,7 +304,7 @@ header .header__wrapper {
   justify-content: space-around;
 }
 .management .management-menu {
-  width: 210px;
+  width: 80px;
   height: 60px;
   align-items: center;
 }
