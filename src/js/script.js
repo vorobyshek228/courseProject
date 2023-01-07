@@ -114,7 +114,9 @@ const searchForMain = function (){
     } else{
         slidder.style.display = "none";
         searchArr.length = 0;
-        searchArr = goodsArr.filter(item => item.name.includes(this.value.trim()));
+        let paternU = this.value.toUpperCase();
+        let paternL = this.value.toLowerCase();
+        searchArr = goodsArr.filter(item => item.name.includes(paternU && paternL));
         goodsAera.innerHTML="";
         createCardsAera(searchArr);
     }
