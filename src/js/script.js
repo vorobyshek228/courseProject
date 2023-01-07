@@ -1,5 +1,5 @@
 import {btnBasket, modalBasket, btnClearBasket, totalPriceValue, shoppingList} from './modules/basket.js'; 
-import {goodsArr} from './modules/data.js';
+import {goodsArr, getData} from './modules/data.js';
 
 let topGodsArr =[];
 let basketArr = [];
@@ -26,14 +26,14 @@ const renderCard = function (item) {
 
     let pricing = document.createElement("p");
         pricing.classList.add("goods-card--pricing");
-        pricing.innerHTML = `<span class="price">${item.price} BYN</span>  <span class="user-price">${item.price - (item.price * item.diskont / 100)} BYN</span>`;
+        pricing.innerHTML = `<span class="price">${item.price} BYN</span>  <span class="user-price">${(item.price - (item.price * item.discount / 100)).toFixed(2)} BYN</span>`;
 
     let title = document.createElement("p");
         title.classList.add("goods-card--title");
         title.innerHTML = `<span class="name">${item.name}</span>`;
     let imageInfo = document.createElement("div");
         imageInfo.classList.add("goods-card--title");
-        imageInfo.innerHTML = `<span class="diskont">-${item.diskont}%</span>`
+        imageInfo.innerHTML = `<span class="diskont">-${Number(item.discount)}%</span>`
 
     let cardBusketButton = document.createElement("button");
         cardBusketButton.classList.add("goods-card-busket-button");
@@ -55,10 +55,10 @@ const renderCard = function (item) {
                     name.textContent = `${item.name} `
                 const price = document.createElement("span");
                     price.classList.add("price");
-                    price.textContent = `${item.price} р. ` ;
+                    price.textContent = `${Number(item.price)} р. ` ;
                 const userPrice = document.createElement("span");
                     userPrice.classList.add("userPrice");
-                    userPrice.textContent = ` ${item.price - (item.price * item.diskont / 100)} р.` ;
+                    userPrice.textContent = ` ${Number(item.price) - Math.round10((Number(item.price) * Number(item.discount) / 100))} р.` ;
                 shoppingList.append(li);
                 li.append(name, price, userPrice);
             })
@@ -111,5 +111,7 @@ const inputSearch = document.querySelector('#search');
 inputSearch.addEventListener("keyup", searchForMain);
 
 
-createCardsAera(goodsArr);
 
+getData()
+.then(data =>  createCardsAera(data))
+.catch(error => console.log(error) );
