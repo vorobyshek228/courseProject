@@ -5,31 +5,31 @@
   background-color: darkorchid;
 }
 
-.order {
+.cart__order {
   margin: 10px auto;
   width: 800px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.order .order__title {
+.cart__order .cart__title {
   margin-top: 40px;
   font-family: "Roboto";
   font-size: 20px;
   color: black;
 }
-.order .order__delete-all {
+.cart__order .cart__delete-all {
   width: 150px;
-  height: 50px;
+  height: 40px;
   font-family: "Roboto";
   font-size: 16px;
   color: black;
 }
-.order .order__delete-all:hover {
-  color: darkorchid;
+.cart__order .cart__delete-all:hover {
+  background-color: darkorchid;
 }
 
-.table {
+.cart__table {
   font-family: "Roboto";
   font-size: 20px;
   color: black;
