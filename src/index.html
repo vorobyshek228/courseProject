@@ -1,85 +1,149 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/slider.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slider.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <header class="header _wrapper">
-        <button id="btnCatalog"><h1>Wildberries</h1></button>
-        <input  id="search" type="text" placeholder="Поиск...">
-        <button id="btnBasket"><h2>Корзина</h2></button>
-        <dialog id="modalBasket" class="dialog">
-            <div class="basket basket-wraper dialog-wraper">
-                <div class="basket-header">
-                    <strong>Корзина</strong>
-                    <button class="btnClearBasket">Очистить корзину</button>
+
+  <!-- class="header _wrapper" -->
+  <header>
+    <div class="header__wrapper">
+        <div class="header__top">
+            <div class="money">
+                <!-- <img id="btnCatalog" class="byn" src="./img/belarus.png" alt="BYN"> -->
+                <!-- <p>BYN</p> -->
+                <!-- <div class="convert__block-item">
+                    <select id="cur1">
+                        <option>BYN</option>
+                        <option>EUR</option>
+                        <option>RUB</option>
+                        <option>USD</option>
+                    </select>
+                </div> -->
+            </div>
+            <!-- <div>Минск</div> -->
+            <a class="sale" href="https://seller.wildberries.ru/login/ru?redirect_url=/">Продавайте на
+                Wildberries</a>
+        </div>
+        <div class="header__bottom">
+            <div class="header-menu">
+                <div>
+                    <nav class="mobile-menu">
+                        <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
+                        <label for="checkbox" class="mobile-menu__btn">
+                            <div class="mobile-menu__icon"></div>
+                        </label>
+                        <div class="mobile-menu__container">
+                            <ul class="mobile-menu__list">
+                                <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Мужское</a></li>
+                                <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Женское</a>
+                                </li>
+                                <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Детское</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-                <ul id="shopping-list" class="basket__items shopping-list">
+                <!-- ///////////////////////////// -->
+                <!-- <img class="header-logo" src="./img/logo.png" alt="logo"> -->
+                <!-- <button id="btnCatalog">
+                  <h1>Wildberries</h1>
+                </button> -->
+                <button id="btnCatalog">
+                  <img class="header-logo" src="./img/logo.png" alt="logo">
+                </button>
+                <!-- ////////////////////////////// -->
+            </div>
+            <input type="search" id="search" type="text" placeholder="        Введите название товара">
+            <div class="management">
+                <!-- <div class="management-menu address"> <img src="./img/location.png" alt="">
+                    <p>Адреса</p>
+                </div>
+                <div class="management-menu enter"><img src="./img/man.png" alt="">
+                    <p>Войти</p>
+                </div> -->
+                <div id="btnBasket" class="management-menu basket"><img src="./img/basket.png" alt="">
+                    <p>Корзина</p>
+                </div>
+                <dialog id="modalBasket" class="dialog">
+                  <div class="basket basket-wraper dialog-wraper">
+                    <div  class="basket-header">
+                      <strong>Корзина</strong>
+                      <button class="btnClearBasket">Очистить корзину</button>
+                    </div>
+                    <ul id="shopping-list" class="basket__items shopping-list">
+            
+                    </ul>
+                    <div id="total-price" class="basket__items total-price"><strong>Итого: <span class="total"></span>0 р.</strong>
+                    </div>
+                  </div>
+                </dialog>
+            </div>
+        </div>
+    </div>
+</header>
 
-                </ul>
-                <div id="total-price" class="basket__items total-price"><strong>Итого: <span class="total"></span>0 р.</strong></div>
-            </div>
-        </dialog>
-        
-    </header>
+<!-- ................................ -->
 
-    <section id="slider_bl" class="slider _wrapper">
-        <div class="wrapper">
-            <input checked type=radio name="slider" id="slide1" />
-            <input type=radio name="slider" id="slide2" />
-            <input type=radio name="slider" id="slide3" />
-            <input type=radio name="slider" id="slide4" />
-            <div class="slider-wrapper">
-              <div class=inner>
-                <article>
-                  <div class="info top-left">
-                  </div>
-                  <img src="./img/big_best_1912.jpg" />
-                </article>
-                <article>
-                  <div class="info bottom-right">
-                  </div>
-                  <img src="./img/big_cosmetics1.jpg" />
-                </article>
-                <article>
-                  <div class="info bottom-left">
-                  </div>
-                  <img src="./img/big_delivery_14_12_22.jpg" />
-                </article>
-                <article>
-                  <div class="info top-right">
-                  </div>
-                  <img src="./img/big_toys.jpg" />
-                </article>
-              <article>
-              </div>
+  <section id="slider_bl" class="slider _wrapper">
+    <div class="wrapper">
+      <input checked type=radio name="slider" id="slide1" />
+      <input type=radio name="slider" id="slide2" />
+      <input type=radio name="slider" id="slide3" />
+      <input type=radio name="slider" id="slide4" />
+      <div class="slider-wrapper">
+        <div class=inner>
+          <article>
+            <div class="info top-left">
             </div>
-            <div class="slider-prev-next-control">
-              <label for=slide1></label>
-              <label for=slide2></label>
-              <label for=slide3></label>
-              <label for=slide4></label>
+            <img src="./img/big_best_1912.jpg" />
+          </article>
+          <article>
+            <div class="info bottom-right">
             </div>
-            <div class="slider-dot-control">
-              <label for=slide1></label>
-              &nbsp;
-              <label for=slide2></label>
-              &nbsp;
-              <label for=slide3></label>
-              &nbsp;
-              <label for=slide4></label>
+            <img src="./img/big_cosmetics1.jpg" />
+          </article>
+          <article>
+            <div class="info bottom-left">
             </div>
-          </div>
-    </section>
-    
+            <img src="./img/big_delivery_14_12_22.jpg" />
+          </article>
+          <article>
+            <div class="info top-right">
+            </div>
+            <img src="./img/big_toys.jpg" />
+          </article>
+          <article>
+        </div>
+      </div>
+      <div class="slider-prev-next-control">
+        <label for=slide1></label>
+        <label for=slide2></label>
+        <label for=slide3></label>
+        <label for=slide4></label>
+      </div>
+      <div class="slider-dot-control">
+        <label for=slide1></label>
+        &nbsp;
+        <label for=slide2></label>
+        &nbsp;
+        <label for=slide3></label>
+        &nbsp;
+        <label for=slide4></label>
+      </div>
+    </div>
+  </section>
 
-    <section class="goods-aera _wrapper"></section>
-    <script src="js/script.js" type="module"></script>
+
+  <section class="goods-aera _wrapper"></section>
+  <script src="js/script.js" type="module"></script>
 </body>
+
 </html>
