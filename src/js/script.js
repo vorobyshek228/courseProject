@@ -1,9 +1,23 @@
 import {btnBasket, modalBasket, btnClearBasket, totalPriceValue, shoppingList} from './modules/basket.js'; 
-import {goodsArr, getData} from './modules/data.js';
+import {getData} from './modules/data.js';
 
-let topGodsArr =[];
+let goodsArr = [];
+
+let topGoodsArr =[];
 let basketArr = [];
 let searchArr= [];
+
+
+
+let uiFlag = 0;
+
+getData()
+.then(data =>  {
+    goodsArr = data;
+    main();
+})
+.catch(error => console.log(error));
+function main(){
 const goodsAera = document.querySelector('.goods-aera');
 const basketGoodsCounter = document.querySelector('#basketGoodsCounter');
     basketGoodsCounter.style.display= "none";
@@ -111,7 +125,28 @@ const inputSearch = document.querySelector('#search');
 inputSearch.addEventListener("keyup", searchForMain);
 
 
+topGoodsArr = goodsArr.slice(0,6);;
+createCardsAera(topGoodsArr);
 
-getData()
-.then(data =>  createCardsAera(data))
-.catch(error => console.log(error) );
+
+
+
+window.addEventListener('wheel',topGoods);
+
+function topGoods(){
+    ++uiFlag;
+
+    if(uiFlag > 6 && uiFlag < 18){
+        goodsAera.innerHTML="";
+        topGoodsArr = goodsArr.slice(0,12)
+        createCardsAera(topGoodsArr);
+    }
+
+    if(uiFlag >= 18){
+        goodsAera.innerHTML="";
+        topGoodsArr = goodsArr.slice(0,18)
+        createCardsAera(topGoodsArr);
+    }
+
+};
+}
