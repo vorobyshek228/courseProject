@@ -71,6 +71,8 @@ function main(){
             searchArr = goodsArr.filter(item => item.category === category);
             goodsAera.innerHTML="";
 
+
+            //код который закроет меню
             window.removeEventListener('wheel', topGoods);
             createCardsAera(searchArr);
         
