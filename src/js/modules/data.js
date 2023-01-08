@@ -25,5 +25,5 @@ export const removeLocalData = function(){
 }
 
 export const valideLocalData = function(){
-    return (localStorage.getItem("wb2") === null ||localStorage.getItem("wb2") === undefined);
+    return (localStorage.getItem("wb2") === null || localStorage.getItem("wb2") === undefined);
 }

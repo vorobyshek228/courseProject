@@ -72,8 +72,8 @@ const renderCard = function (item, basketArr) {
         cardBusketButton.classList.add("goods-card-busket-button");
         cardBusketButton.textContent = '+';
 
-
         cardBusketButton.addEventListener('click', function(){
+            
             item.count = 1;
             basketArr.push(item);
 

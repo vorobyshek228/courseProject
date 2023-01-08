@@ -1,4 +1,4 @@
-import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket} from './basket.js'; 
+import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket, nullBasket} from './basket.js'; 
 import {getData, getLocalData, setLocalData, removeLocalData, valideLocalData} from './data.js';
 import {createCardsAera, goodsAera, renderBasket} from './render-cards.js';
 
@@ -28,10 +28,19 @@ if (basketArr.length > 0){
     basketGoodsCounter.style.display = "block";
     const result = basketArr.reduce((sum, current) => sum + +current.count, 0);
     basketGoodsCounter.textContent = result;
+    
 }
 
 
-
+btnBasket.addEventListener('click', function(){
+    let basketNull = document.getElementById('modal-basket__null'),
+        basketList = document.getElementById(`basketList`);
+    if (basketArr.length > 0){
+    nullBasket(basketNull, basketList);
+    } else {
+        nullBasket(basketList, basketNull);
+    }
+  })
 
 getData()
 .then(data =>  {
@@ -143,7 +152,6 @@ function main(){
     categoryWomen.addEventListener('click', function(){
         searchForCategory('women');
     })
-
     
 }
 
