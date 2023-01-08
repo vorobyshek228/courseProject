@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  background-color: #abaaaa;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.modal {
+  display: flex;
+  margin: 0 auto;
+  width: 960px;
+  height: 600px;
+  background-color: #d3d3d3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -300px 0 0 -480px;
+}
+
+img {
+  width: 50%;
+}
+
+.model__info {
+  width: 43%;
+  margin: 0 auto;
+}
+
+.model__price {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.model__price h3 {
+  font-size: 20px;
+}
+.model__price h4 {
+  text-decoration: line-through;
+  color: #8b8b8b;
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+.buy {
+  width: 366px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #c111a4;
+  color: white;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+.buy:hover {
+  background-color: #e71bc5;
+}
+
+.reviews {
+  display: flex;
+  height: 20px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.star {
+  display: flex;
+}
+
+.buttonn {
+  height: 65%;
+  display: flex;
+}
+.buttonn .heart {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid rgba(4, 137, 226, 0);
+}
+
+.info {
+  margin-top: 15px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+}
+.info:hover {
+  color: #e71bc5;
+}/*# sourceMappingURL=style.css.map */
