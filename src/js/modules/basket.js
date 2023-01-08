@@ -10,6 +10,7 @@ export const totalPrice = document.querySelector('#total-price');
 export const clearBasket = function(){
   const basketList = document.querySelector('#basketList tbody');
   basketList.innerHTML="";
+  totalPrice.innerHTML="Итого: 0";
 }
 
 

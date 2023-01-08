@@ -23,7 +23,7 @@ if (valideLocalData()){
 
 }
 
-if (basketArr.length > 1){
+if (basketArr.length > 0){
     renderBasket(basketArr);
     basketGoodsCounter.style.display = "block";
     basketGoodsCounter.textContent = basketArr.length;

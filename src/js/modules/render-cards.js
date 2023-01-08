@@ -37,9 +37,10 @@ const renderCard = function (item, basketArr) {
         cardBusketButton.addEventListener('click', function(){
             item.count = 1;
             basketArr.push(item);
-            setLocalData(basketArr);
+
             clearBasket();
             renderBasket(basketArr);
+            setLocalData(basketArr);
         })
 
 
@@ -71,18 +72,31 @@ export const renderBasket = function(arr){
         const count = document.createElement("td");
         const num = document.createElement("input");
             num.setAttribute("type","number");
-            num.setAttribute("value","1");
+            num.setAttribute("value", item.count);
+            num.setAttribute("min","1");
         const price = document.createElement("td");
-             price.innerHTML = `<span class="price">${item.price} р.</span> <span class="userPrice">${(item.price - (item.price * (item.discount / 100))).toFixed(2)} р.</span>` ;
+             price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
 
         basketList.append(li);
         li.append(img, name, count, price);
         count.append(num);
+        num.addEventListener('change', function(){
+            item.count =  this.value;
+            price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
+            setLocalData(arr);
+            drawTotalPrice();
+       });
+    
     })
-    let totalPriceValue = 0;
-    for(let i = 0; i < arr.length; i++){
-        let item = arr[i];
-        totalPriceValue += item.price - (item.price * item.discount / 100);
+
+    drawTotalPrice();
+    function drawTotalPrice(){
+        let totalPriceValue = 0;
+        for(let i = 0; i < arr.length; i++){
+            let item = arr[i];
+            totalPriceValue += item.price* item.count - (item.price* item.count * item.discount / 100);
+        }
+         totalPrice.innerHTML= `Итого: ${totalPriceValue.toFixed(2)} р.`;
     }
-     totalPrice.innerHTML= `Итого: ${totalPriceValue.toFixed(2)} р.`;
+
 }
