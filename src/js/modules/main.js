@@ -74,9 +74,13 @@ function main(){
         } else{
             slidder.style.display = "none";
             searchArr.length = 0;
-            let paternU = this.value.toUpperCase();
-            let paternL = this.value.toLowerCase();
-            searchArr = goodsArr.filter(item => item.name.includes(paternU && paternL));
+            let rule = this.value.split('');
+            rule[0]=this.value[0].toUpperCase();
+            let ruleU = rule.join('');
+            rule[0]=this.value[0].toLowerCase()
+            let ruleL= rule.join('');
+
+            searchArr = goodsArr.filter(item => item.name.includes(ruleU||ruleU));
             goodsAera.innerHTML="";
             createCardsAera(searchArr, basketArr);
         }

@@ -15,6 +15,21 @@ const renderCard = function (item, basketArr) {
     let imgBtn = document.createElement("button");
         imgBtn.classList.add("card-button");
         imgBtn.textContent = 'Быстрый просмотр';
+        imgBtn.addEventListener('click', function(){
+            const modalGoodsCard = document.querySelector('#modalGoodsCard');
+                modalGoodsCard.classList.add("modalGoodsCard");
+                modalGoodsCard.innerHTML = '';
+            const img = document.createElement("img");
+                img.setAttribute("src", item.imgUrl);
+            const cardInfo = document.createElement("div");
+                cardInfo.classList.add("card__info");
+            const h2 = document.createElement("div");
+                h2.textContent = `${item.name}` 
+            //const         
+            modalGoodsCard.append(img, cardInfo);
+            cardInfo.append(h2);
+            modalGoodsCard.showModal();         
+        })
 
     let figcaption = document.createElement("figcaption");
 
