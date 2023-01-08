@@ -1,6 +1,9 @@
+import {setLocalData} from './data.js';
+
+
 export const goodsAera = document.querySelector('.goods-aera');
 
-const renderCard = function (item) {
+const renderCard = function (item, basketArr) {
     let figure = document.createElement("figure");
         figure.classList.add("goods-card");
         figure.setAttribute("data-id", item.id);
@@ -30,35 +33,12 @@ const renderCard = function (item) {
         cardBusketButton.classList.add("goods-card-busket-button");
         cardBusketButton.textContent = '+';
 
-        cardBusketButton.addEventListener('click', function(){
-            basketArr.push(item)
-            const shoppingList = document.querySelector("#shopping-list");
-            const totalPrice = document.querySelector("#total-price");
 
-            basketGoodsCounter.style.display = "block";
-            basketGoodsCounter.textContent = basketArr.length;
-            shoppingList.innerHTML= "";
-            totalPrice.innerHTML= "";
-            basketArr.forEach(item => {
-                const li = document.createElement("li");
-                const name = document.createElement("span");
-                    name.classList.add("name");
-                    name.textContent = `${item.name} `
-                const price = document.createElement("span");
-                    price.classList.add("price");
-                    price.textContent = `${Number(item.price)} р. ` ;
-                const userPrice = document.createElement("span");
-                    userPrice.classList.add("userPrice");
-                    userPrice.textContent = ` ${(item.price - (item.price * (item.discount / 100))).toFixed(2)} р.` ;
-                shoppingList.append(li);
-                li.append(name, price, userPrice);
-            })
-            let totalPriceValue = 0;
-            for(let i = 0; i < basketArr.length; i++){
-                let item = basketArr[i];
-                totalPriceValue += item.price - (item.price * item.discount / 100);
-            }
-            totalPrice.innerHTML= `<strong>Итого: <span class="total">${totalPriceValue.toFixed(2)}</span> р.</strong>`;
+        cardBusketButton.addEventListener('click', function(){
+            basketArr.push(item);
+            setLocalData(basketArr);
+            renderBasket(basketArr);
+
         })
 
 
@@ -70,7 +50,37 @@ const renderCard = function (item) {
   
     }
 
-export const createCardsAera = function(arr){  
-    arr.forEach(element => renderCard(element));
+export const createCardsAera = function(arr, basketArr){  
+    arr.forEach(element => renderCard(element, basketArr));
 } 
-    
+   
+export const renderBasket = function(arr){
+    const shoppingList = document.querySelector("#shopping-list");
+    const totalPrice = document.querySelector("#total-price");
+
+    basketGoodsCounter.style.display = "block";
+    basketGoodsCounter.textContent = arr.length;
+    shoppingList.innerHTML= "";
+    totalPrice.innerHTML= "";
+
+    arr.forEach(item => {
+        const li = document.createElement("li");
+        const name = document.createElement("span");
+            name.classList.add("name");
+            name.textContent = `${item.name} `
+        const price = document.createElement("span");
+            price.classList.add("price");
+            price.textContent = `${Number(item.price)} р. ` ;
+        const userPrice = document.createElement("span");
+            userPrice.classList.add("userPrice");
+            userPrice.textContent = ` ${(item.price - (item.price * (item.discount / 100))).toFixed(2)} р.` ;
+        shoppingList.append(li);
+        li.append(name, price, userPrice);
+    })
+    let totalPriceValue = 0;
+    for(let i = 0; i < arr.length; i++){
+        let item = arr[i];
+        totalPriceValue += item.price - (item.price * item.discount / 100);
+    }
+    totalPrice.innerHTML= `<strong>Итого: <span class="total">${totalPriceValue.toFixed(2)}</span> р.</strong>`;
+}
