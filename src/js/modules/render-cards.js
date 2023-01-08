@@ -59,7 +59,8 @@ export const createCardsAera = function(arr, basketArr){
 export const renderBasket = function(arr){
 
     basketGoodsCounter.style.display = "block";
-    basketGoodsCounter.textContent = arr.length;
+    const result = arr.reduce((sum, current) => sum + +current.count, 0);
+    basketGoodsCounter.textContent = result;
 
     const basketList = document.querySelector('#basketList tbody');
 
@@ -85,6 +86,7 @@ export const renderBasket = function(arr){
             price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
             setLocalData(arr);
             drawTotalPrice();
+            drawBasketGoodsCounter();
        });
     
     })
@@ -98,5 +100,9 @@ export const renderBasket = function(arr){
         }
          totalPrice.innerHTML= `Итого: ${totalPriceValue.toFixed(2)} р.`;
     }
-
+    function drawBasketGoodsCounter(){
+        basketGoodsCounter.style.display = "block";
+        const result = arr.reduce((sum, current) => sum + +current.count, 0);
+        basketGoodsCounter.textContent = result;
+    }
 }

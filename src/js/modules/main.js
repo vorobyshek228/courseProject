@@ -26,7 +26,8 @@ if (valideLocalData()){
 if (basketArr.length > 0){
     renderBasket(basketArr);
     basketGoodsCounter.style.display = "block";
-    basketGoodsCounter.textContent = basketArr.length;
+    const result = basketArr.reduce((sum, current) => sum + +current.count, 0);
+    basketGoodsCounter.textContent = result;
 }
 
 
@@ -89,7 +90,7 @@ function main(){
             goodsAera.innerHTML="";
 
 
-            //код который закроет меню
+            categoryMenu.checked = false;
             window.removeEventListener('wheel', topGoods);
             createCardsAera(searchArr, basketArr);
         
@@ -130,16 +131,12 @@ function main(){
 
     categoryKids.addEventListener('click', function(){
         searchForCategory('kid');
-        categoryMenu.checked = false;
-        
     })
     categoryMen.addEventListener('click', function(){
         searchForCategory('men');
-        categoryMenu.checked = false;
     })
     categoryWomen.addEventListener('click', function(){
         searchForCategory('women');
-        categoryMenu.checked = false;
     })
 
     
