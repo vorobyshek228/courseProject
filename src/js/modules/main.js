@@ -126,18 +126,20 @@ function main(){
     const categoryMen = document.querySelector('#category-men');
     const categoryWomen = document.querySelector('#category-women');
     const categoryKids = document.querySelector('#category-kids');
-    const categoryMenu = document.querySelector('.mobile-menu__btn');
+    const categoryMenu = document.querySelector('#checkbox');
 
     categoryKids.addEventListener('click', function(){
         searchForCategory('kid');
-
+        categoryMenu.checked = false;
         
     })
     categoryMen.addEventListener('click', function(){
         searchForCategory('men');
+        categoryMenu.checked = false;
     })
     categoryWomen.addEventListener('click', function(){
         searchForCategory('women');
+        categoryMenu.checked = false;
     })
 
 
