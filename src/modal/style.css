@@ -68,26 +68,8 @@ img {
 }
 
 .reviews {
-  display: flex;
   height: 20px;
   margin: 0 auto;
-  justify-content: space-between;
-}
-
-.star {
-  display: flex;
-}
-
-.buttonn {
-  height: 65%;
-  display: flex;
-}
-.buttonn .heart {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border: 1px solid rgba(4, 137, 226, 0);
 }
 
 .info {
@@ -98,4 +80,8 @@ img {
 }
 .info:hover {
   color: #e71bc5;
+}
+
+.buttonn {
+  height: 65%;
 }/*# sourceMappingURL=style.css.map */
