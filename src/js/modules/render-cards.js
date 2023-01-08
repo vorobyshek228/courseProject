@@ -51,7 +51,8 @@ const renderCard = function (item, basketArr) {
             card.append(img, cardInfo);
             cardInfo.append(name, id, price, button);
             modalGoodsCard.showModal();
-            modalGoodsCard.addEventListener("click", closeOnBackDropClick);         
+            modalGoodsCard.addEventListener("click", closeOnBackDropClick);     
+            addZoom("zoomC");
         })
 
     let figcaption = document.createElement("figcaption");
@@ -84,10 +85,8 @@ const renderCard = function (item, basketArr) {
 
         goodsAera.append(figure);
         figure.append(img,imgBtn,figcaption); 
-        figcaption.append(pricing, title, imageInfo)
-        imageInfo.append(cardBusketButton)
-
-  
+        figcaption.append(pricing, title, imageInfo);
+        imageInfo.append(cardBusketButton);
     }
 
 export const createCardsAera = function(arr, basketArr){  
@@ -144,3 +143,4 @@ export const renderBasket = function(arr){
         basketGoodsCounter.textContent = result;
     }
 }
+
