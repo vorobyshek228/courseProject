@@ -10,44 +10,46 @@
 </head>
 
 <body>
-    <header class="header">
-      <img src="./img/wb_logo_ny_2022.png" alt="">
-    </header>
 
-  <div class="cart">
-    <div class="cart__order">
+
+  <div class="cart basket basket-wraper dialog-wraper">
+    <div class="cart__order basket-header">
       <div class="cart__title">
         Корзина
       </div>
-      <button class="cart__delete-all">Удалить все</button>
+      <button class="btnClearBasket">Очистить корзину</button>
     </div>
     <p></p>
-    <table class="cart__table" style="width:100%" cellpadding="5" border="1">
-      <tr>
-        <td width="30%">Фото</td>
-        <td width="40%">Название</td>
-        <td width="10%">Количество</td>
-        <td width="10%">Цена</td>
-        <td width="10%">Скидка</td>
-      </tr>
-      <tr>
-        <td width="30%"><img src="./img/tov.jpg" alt=""></td>
-        <td width="40%">Игрушки для ванной купания для девочек</td>
-        <td width="10%"><input id="number" type="number" style="width:80%" placeholder="1" min="1" max="10"></td>
-        <td width="10%">15</td>
-        <td width="10%">5</td>
-      </tr>
-      
+    <table class="cart__table" style="width:100%" cellpadding="2" border="1">
+      <thead>  
+        <tr>
+          <td width="30%">Фото</td>
+          <td width="40%">Название</td>
+          <td width="10%">Количество</td>
+          <td width="10%">Цена</td>
+          <td width="10%">Скидка</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td width="30%"><img src="./img/tov.jpg" alt=""></td>
+          <td width="40%">Игрушки для ванной купания для девочек</td>
+          <td width="10%"><input id="number" type="number" style="width:80%" placeholder="1" min="1" max="10"></td>
+          <td width="10%">15</td>
+          <td width="10%">5</td>
+        </tr>
+      </tbody>
+      <tfoot>  
+        <tr>
+          <td width="70%"></td>
+          <td width="30%" colspan = "4">Итого</td>
+        </tr>
+      </tfoot>
     </table>  
-    <table class="cart__table" style="width:100%" cellpadding="5" border="1">
-      <tr>
-        <td width="70%"></td>
-        <td width="30%">Итого</td>
-      </tr>
-    </table> 
   </div>
 
 
 
 </body>
+<script src="./js/script.js" type="module"></script>
 </html>

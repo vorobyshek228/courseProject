@@ -1,4 +1,4 @@
-import {btnBasket, modalBasket, btnClearBasket, totalPriceValue, shoppingList} from './basket.js'; 
+import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket} from './basket.js'; 
 import {getData, getLocalData, setLocalData, removeLocalData, valideLocalData} from './data.js';
 import {createCardsAera, goodsAera, renderBasket} from './render-cards.js';
 
@@ -102,10 +102,10 @@ function main(){
     
    
     btnClearBasket.addEventListener("click", function(){
-        shoppingList.innerHTML = "";
-        totalPriceValue.innerHTML = `<strong>Итого: <span class="total"></span>0 р.</strong>`;
+        modalBasket.close();
         basketArr.length = 0;
         removeLocalData();
+        clearBasket();
         basketGoodsCounter.textContent = 0;
         basketGoodsCounter.style.display= "none";
         
@@ -142,7 +142,7 @@ function main(){
         categoryMenu.checked = false;
     })
 
-
+    
 }
 
 }

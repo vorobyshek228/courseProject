@@ -49,17 +49,31 @@
 
                 <div id='basketGoodsCounter'> 0 </div>    
                 </div>
-                <dialog id="modalBasket" class="dialog">
-                  <div class="basket basket-wraper dialog-wraper">
-                    <div  class="basket-header">
-                      <strong>Корзина</strong>
+                <dialog id="modalBasket">
+                  <div >
+                    <div class="basketHeader" >
+                      <p>Корзина</p>
                       <button class="btnClearBasket">Очистить корзину</button>
                     </div>
-                    <ul id="shopping-list" class="basket__items shopping-list">
-            
-                    </ul>
-                    <div id="total-price" class="basket__items total-price"><strong>Итого: <span class="total"></span>0 р.</strong>
-                    </div>
+                    <p></p>
+                    <table id="basketList" class="cart__table" style="width:100%" cellpadding="2" border="1">
+                      <thead>  
+                        <tr>
+                          <td >Фото</td>
+                          <td >Название</td>
+                          <td >Количество</td>
+                          <td >Цена</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                      <tfoot>  
+                        <tr>
+                          <td></td>
+                          <td  colspan = "3" id="total-price" >Итого: 0</td>
+                        </tr>
+                      </tfoot>
+                    </table>  
                   </div>
                 </dialog>
             </div>
@@ -119,26 +133,6 @@
 
   <section class="goods-aera _wrapper">
 
-  </section>
-  <section>
-    <div class="cart">
-      <div class="cart__order">
-        <div class="cart__title">
-          Корзина
-        </div>
-        <button class="cart__delete-all">Удалить все</button>
-      </div>
-      <p></p>
-      <table class="cart__table" style="width:100%" cellpadding="5" border="1">
-        <tr>
-          <td width="30%">Фото</td>
-          <td width="40%">Название</td>
-          <td width="10%">Количество</td>
-          <td width="10%">Цена</td>
-          <td width="10%">Скидка</td>
-        </tr>
-      </table>  
-    </div>
   </section>
   <script src="./js/script.js" type="module"></script>
 </body>
