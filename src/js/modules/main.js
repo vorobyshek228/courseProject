@@ -59,13 +59,13 @@ function main(){
         ++uiFlag;
     
         if(uiFlag > 6 && uiFlag < 18){
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
             topGoodsArr = goodsArr.slice(0,12)
             createCardsAera(topGoodsArr, basketArr);
         }
     
         if(uiFlag >= 18){
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
             topGoodsArr = goodsArr.slice(0,18)
             createCardsAera(topGoodsArr, basketArr);
         }
@@ -152,6 +152,7 @@ function main(){
     categoryWomen.addEventListener('click', function(){
         searchForCategory('women');
     })
+
     
 }
 

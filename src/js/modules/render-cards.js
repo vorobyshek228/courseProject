@@ -16,7 +16,7 @@ const renderCard = function (item, basketArr) {
         imgBtn.classList.add("card-button");
         imgBtn.textContent = 'Быстрый просмотр';
         imgBtn.addEventListener('click', function(){
-            const modalGoodsCard = document.querySelector('#modalGoodsCard');
+            const modalGoodsCard = document.getElementById('modalGoodsCard');
                 modalGoodsCard.classList.add("modalGoodsCard");
                 modalGoodsCard.innerHTML = '';
             const card = document.createElement("div");
@@ -52,7 +52,7 @@ const renderCard = function (item, basketArr) {
             cardInfo.append(name, id, price, button);
             modalGoodsCard.showModal();
             modalGoodsCard.addEventListener("click", closeOnBackDropClick);     
-            addZoom("zoomC");
+            // addZoom("zoomC");
         })
 
     let figcaption = document.createElement("figcaption");
@@ -142,5 +142,5 @@ export const renderBasket = function(arr){
         const result = arr.reduce((sum, current) => sum + +current.count, 0);
         basketGoodsCounter.textContent = result;
     }
-}
+};
 
