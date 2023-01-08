@@ -1,3 +1,5 @@
+@import "_basketModal";
+
 %default {
   min-height: 200px;
   border-radius: 15px;
@@ -78,20 +80,20 @@
   display: flex;
   align-content: center;
   justify-content: center;
-  gap: 16px;
+  //gap: 10px;
   flex-wrap: wrap;
 
   .goods-card {
-    width: 180px;
+    width: 160px;
     height: 240px;
     position: relative;
-    margin-bottom: 6em;
+    margin-bottom: 10em;
 
     .goods-card--img {
       position: relative;
       border-radius: 15px;
       height: 100%;
-      // width: 100%;
+      width: 100%;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
     }
 
@@ -199,72 +201,7 @@
   }
 }
 
-#modalBasket {
-  ul {
-    list-style-type: none;
-  }
 
-  .basket-wraper {
-    background-color: white;
-    border-radius: 20px;
-    max-width: 300px;
-
-  }
-
-  .basket-header {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
-    font-size: 1.2rem;
-  }
-
-  .btnClearBasket {
-    min-width: 80px;
-    font-family: inherit;
-    appearance: none;
-    border: 0;
-    border-radius: 1px;
-    background: #d74646;
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  .btnClearBasket:hover {
-    background: #aa1d1d;
-  }
-
-  .btnClearBasket:focus {
-    outline: none;
-    box-shadow: 0 0 0 1px #dcb4f7;
-  }
-
-  .shopping-list {
-    padding-left: 0;
-
-  }
-
-  .total-price {
-    border-top: 1px solid gray;
-    padding-top: 1rem;
-    font-size: 1.2rem;
-    text-align: right;
-  }
-
-  .price {
-    color: gray;
-    text-decoration: line-through;
-    font-size: 0.8rem;
-  }
-}
-
-
-
-
-
-///////////////////////////////////////////////////
 
 
 
@@ -355,7 +292,6 @@ header {
         background-color: rgba(255, 255, 255, 0.4);
         font-size: 15px;
         padding-left: 30px;
-        cursor: pointer;
 
         &:hover {
             transition: 0.5s;
@@ -592,7 +528,7 @@ main {
 
 
 
-////////////Карточки////////////
+
 .price{
   font-weight: 500;
 }
@@ -613,3 +549,31 @@ main {
   background-color: #f44;
   border-radius: 5px;
 }
+
+#btnBasket{
+  position: relative;
+}
+
+#basketGoodsCounter{
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: #f44;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  padding-top: 0.2rem;
+  width: 1.2rem;
+  height: 1rem;
+  text-align: center;
+}
+
+.noscript{
+  p{
+    background-color: #f44;
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+  }
+}
+

@@ -1,5 +1,49 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
+#modalBasket {
+  max-width: 1000px;
+}
+#modalBasket .basketHeader {
+  display: flex;
+  justify-content: space-between;
+}
+#modalBasket .basketHeader p {
+  font-size: 1rem;
+  font-weight: bold;
+}
+#modalBasket .btnClearBasket {
+  min-width: 80px;
+  font-family: inherit;
+  appearance: none;
+  border: 0;
+  border-radius: 2px;
+  background: #d74646;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#modalBasket .btnClearBasket:hover {
+  background: #aa1d1d;
+}
+#modalBasket .btnClearBasket:focus {
+  box-shadow: 0 0 0 1px #dcb4f7;
+}
+#modalBasket input {
+  all: initial;
+}
+#modalBasket img {
+  height: 30%;
+  width: 30%;
+}
+#modalBasket .price {
+  text-decoration: line-through;
+  color: grey;
+  margin-right: auto;
+}
+#modalBasket .userPrice {
+  margin-left: auto;
+}
+
 .slider {
   min-height: 200px;
   border-radius: 15px;
@@ -40,10 +84,6 @@
   border-radius: 15px;
   box-shadow: 0px 5px 10px 2px hsla(0deg, 0%, 10%, 0.5);
 }
-.header dialog::-webkit-backdrop {
-  background-color: hsl(0deg, 0%, 1%);
-  opacity: 0.2;
-}
 .header dialog::backdrop {
   background-color: hsl(0deg, 0%, 1%);
   opacity: 0.2;
@@ -66,19 +106,19 @@
   display: flex;
   align-content: center;
   justify-content: center;
-  gap: 16px;
   flex-wrap: wrap;
 }
 .goods-aera .goods-card {
-  width: 180px;
+  width: 160px;
   height: 240px;
   position: relative;
-  margin-bottom: 6em;
+  margin-bottom: 10em;
 }
 .goods-aera .goods-card .goods-card--img {
   position: relative;
   border-radius: 15px;
   height: 100%;
+  width: 100%;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .goods-aera .goods-card .card-button {
@@ -106,8 +146,7 @@
   border-radius: 15px;
   height: 100%;
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .goods-aera .goods-card .goods-card--pricing {
   display: flex;
@@ -164,57 +203,6 @@
 }
 .goods-aera .goods-card .goods-card-busket-button:active {
   background-color: aqua;
-}
-
-#modalBasket ul {
-  list-style-type: none;
-}
-#modalBasket .basket-wraper {
-  background-color: white;
-  border-radius: 20px;
-  max-width: 300px;
-}
-#modalBasket .basket-header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 20px;
-  font-size: 1.2rem;
-}
-#modalBasket .btnClearBasket {
-  min-width: 80px;
-  font-family: inherit;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: 0;
-  border-radius: 1px;
-  background: #d74646;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-#modalBasket .btnClearBasket:hover {
-  background: #aa1d1d;
-}
-#modalBasket .btnClearBasket:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px #dcb4f7;
-}
-#modalBasket .shopping-list {
-  padding-left: 0;
-}
-#modalBasket .total-price {
-  border-top: 1px solid gray;
-  padding-top: 1rem;
-  font-size: 1.2rem;
-  text-align: right;
-}
-#modalBasket .price {
-  color: gray;
-  text-decoration: line-through;
-  font-size: 0.8rem;
 }
 
 body {
@@ -290,7 +278,6 @@ header .header__wrapper {
   background-color: rgba(255, 255, 255, 0.4);
   font-size: 15px;
   padding-left: 30px;
-  cursor: pointer;
 }
 .header__bottom input:hover {
   transition: 0.5s;
@@ -490,4 +477,29 @@ main .wrapper {
   color: rgb(255, 255, 255);
   background-color: #f44;
   border-radius: 5px;
+}
+
+#btnBasket {
+  position: relative;
+}
+
+#basketGoodsCounter {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: #f44;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  padding-top: 0.2rem;
+  width: 1.2rem;
+  height: 1rem;
+  text-align: center;
+}
+
+.noscript p {
+  background-color: #f44;
+  text-align: center;
+  padding: 2rem;
+  margin: 1rem;
+  font-size: 1.5rem;
 }/*# sourceMappingURL=style.css.map */
