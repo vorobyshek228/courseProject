@@ -264,7 +264,6 @@
 
 
 
-///////////////////////////////////////////////////
 
 
 
@@ -628,4 +627,14 @@ main {
   width: 1.2rem;
   height: 1rem;
   text-align: center;
+}
+
+.noscript{
+  p{
+    background-color: #f44;
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+  }
 }
