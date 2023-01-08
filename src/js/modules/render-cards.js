@@ -1,5 +1,5 @@
 import {setLocalData} from './data.js';
-import {totalPrice, clearBasket} from './basket.js';
+import {totalPrice, clearBasket, closeOnBackDropClick} from './basket.js';
 
 export const goodsAera = document.querySelector('.goods-aera');
 
@@ -19,16 +19,39 @@ const renderCard = function (item, basketArr) {
             const modalGoodsCard = document.querySelector('#modalGoodsCard');
                 modalGoodsCard.classList.add("modalGoodsCard");
                 modalGoodsCard.innerHTML = '';
+            const card = document.createElement("div");
+                card.classList.add("card");
             const img = document.createElement("img");
                 img.setAttribute("src", item.imgUrl);
+                img.classList.add("card__img");
             const cardInfo = document.createElement("div");
                 cardInfo.classList.add("card__info");
-            const h2 = document.createElement("div");
-                h2.textContent = `${item.name}` 
-            //const         
-            modalGoodsCard.append(img, cardInfo);
-            cardInfo.append(h2);
-            modalGoodsCard.showModal();         
+            const name = document.createElement("p");
+                name.textContent = `${item.name}`;
+            const id = document.createElement("p");
+                id.classList.add("card__id");
+                id.textContent = `Артикур: ${item.id}`;
+            const price = document.createElement("div");
+                price.classList.add("card__price");
+                price.innerHTML = `<span class="price">${item.price} р.</span> <span class="userPrice">${(item.price - (item.price * item.discount / 100)).toFixed(2)} р.</span>`;
+            const button = document.createElement("button");
+                button.classList.add("card__button");
+                button.textContent = 'Добавить в корзину';
+                button.addEventListener('click', function(){
+                    item.count = 1;
+                    basketArr.push(item);
+        
+                    clearBasket();
+                    renderBasket(basketArr);
+                    setLocalData(basketArr);
+
+                    modalGoodsCard.close();
+                });
+            modalGoodsCard.append(card);
+            card.append(img, cardInfo);
+            cardInfo.append(name, id, price, button);
+            modalGoodsCard.showModal();
+            modalGoodsCard.addEventListener("click", closeOnBackDropClick);         
         })
 
     let figcaption = document.createElement("figcaption");

@@ -44,6 +44,58 @@
   margin-left: auto;
 }
 
+#modalGoodsCard {
+  background-color: #d3d3d3;
+  width: 600px;
+}
+#modalGoodsCard .card {
+  display: flex;
+  margin: 0 auto;
+  background-color: #d3d3d3;
+  width: 100%;
+}
+#modalGoodsCard .card__img {
+  height: 50%;
+  width: 40%;
+  object-fit: fill;
+}
+#modalGoodsCard .card__info {
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+#modalGoodsCard .card__id {
+  font-size: 0.8rem;
+}
+#modalGoodsCard .card__price {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+#modalGoodsCard .card__price .userPrice {
+  font-size: 20px;
+}
+#modalGoodsCard .card__price .price {
+  text-decoration: line-through;
+  color: #8b8b8b;
+  font-size: 15px;
+  padding-top: 5px;
+}
+#modalGoodsCard .card__button {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #c111a4;
+  color: white;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+#modalGoodsCard .card__button:hover {
+  background-color: #e71bc5;
+}
+
 .slider {
   min-height: 200px;
   border-radius: 15px;

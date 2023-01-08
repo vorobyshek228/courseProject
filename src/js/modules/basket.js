@@ -17,7 +17,7 @@ export const clearBasket = function(){
 
 modalBasket.addEventListener("click", closeOnBackDropClick);
 
-function closeOnBackDropClick({ currentTarget, target }) {
+export function closeOnBackDropClick({ currentTarget, target }) {
   const dialogElement = currentTarget;
   const isClickedOnBackDrop = target === dialogElement
   if (isClickedOnBackDrop) {

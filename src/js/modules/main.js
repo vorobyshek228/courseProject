@@ -103,6 +103,7 @@ function main(){
     
     
     const inputSearch = document.querySelector('#search');
+        inputSearch.value = '';
     inputSearch.addEventListener("keyup", searchForMain);
     
    
