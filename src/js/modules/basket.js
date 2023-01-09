@@ -24,3 +24,7 @@ export function closeOnBackDropClick({ currentTarget, target }) {
     dialogElement.close();
   }
 }
+export function nullBasket(deletedItem, shownItem) {
+  deletedItem.style.display = 'none';
+  shownItem.style.display = 'table';
+}

@@ -42,12 +42,11 @@
                   <img class="header-logo" src="./img/logo.png" alt="logo">
                 </button>
             </div>
-            <input id="search" type="text" placeholder="        Введите название товара">
+            <input id="search" type="text" placeholder="Введите название товара">
             <div class="management">
                 <div id="btnBasket" class="management-menu basket"><img src="./img/basket.png" alt="">
-                    <p>Корзина</p>
-
-                <div id='basketGoodsCounter'> 0 </div>    
+                  <p>Корзина</p>
+                  <div id='basketGoodsCounter'> 0 </div>    
                 </div>
                 <dialog id="modalBasket">
                   <div >
@@ -55,7 +54,7 @@
                       <p>Корзина</p>
                       <button class="btnClearBasket">Очистить корзину</button>
                     </div>
-                    <p></p>
+                    <p id="modal-basket__null">Вы пока не добавили товары в корзину</p>
                     <table id="basketList" class="cart__table" style="width:100%" cellpadding="2" border="1">
                       <thead>  
                         <tr>

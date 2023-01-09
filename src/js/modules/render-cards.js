@@ -16,7 +16,7 @@ const renderCard = function (item, basketArr) {
         imgBtn.classList.add("card-button");
         imgBtn.textContent = 'Быстрый просмотр';
         imgBtn.addEventListener('click', function(){
-            const modalGoodsCard = document.querySelector('#modalGoodsCard');
+            const modalGoodsCard = document.getElementById('modalGoodsCard');
                 modalGoodsCard.classList.add("modalGoodsCard");
                 modalGoodsCard.innerHTML = '';
             const card = document.createElement("div");
@@ -30,7 +30,7 @@ const renderCard = function (item, basketArr) {
                 name.textContent = `${item.name}`;
             const id = document.createElement("p");
                 id.classList.add("card__id");
-                id.textContent = `Артикур: ${item.id}`;
+                id.textContent = `Артикул: ${item.id}`;
             const price = document.createElement("div");
                 price.classList.add("card__price");
                 price.innerHTML = `<span class="price">${item.price} р.</span> <span class="userPrice">${(item.price - (item.price * item.discount / 100)).toFixed(2)} р.</span>`;
@@ -52,7 +52,6 @@ const renderCard = function (item, basketArr) {
             cardInfo.append(name, id, price, button);
             modalGoodsCard.showModal();
             modalGoodsCard.addEventListener("click", closeOnBackDropClick);     
-            addZoom("zoomC");
         })
 
     let figcaption = document.createElement("figcaption");
@@ -72,12 +71,19 @@ const renderCard = function (item, basketArr) {
         cardBusketButton.classList.add("goods-card-busket-button");
         cardBusketButton.textContent = '+';
 
-
         cardBusketButton.addEventListener('click', function(){
-            item.count = 1;
-            basketArr.push(item);
+            const findSameId = basketArr.map(elem => elem.id);
+            if(findSameId.includes(item.id)){
+                let num = item.count;
+                item.count =  ++num;
+
+            }else{
+                item.count = 1;
+                basketArr.push(item);
+            }
 
             clearBasket();
+
             renderBasket(basketArr);
             setLocalData(basketArr);
         })
@@ -108,10 +114,8 @@ export const renderBasket = function(arr){
         const name = document.createElement("td");
             name.innerHTML = `${item.name} `;
         const count = document.createElement("td");
-        const num = document.createElement("input");
-            num.setAttribute("type","number");
-            num.setAttribute("value", item.count);
-            num.setAttribute("min","1");
+        const num = document.createElement("span");
+            num.innerHTML = `${item.count}`
         const price = document.createElement("td");
              price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
 
@@ -142,5 +146,5 @@ export const renderBasket = function(arr){
         const result = arr.reduce((sum, current) => sum + +current.count, 0);
         basketGoodsCounter.textContent = result;
     }
-}
+};
 

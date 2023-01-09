@@ -1,4 +1,4 @@
-import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket} from './basket.js'; 
+import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket, nullBasket} from './basket.js'; 
 import {getData, getLocalData, setLocalData, removeLocalData, valideLocalData} from './data.js';
 import {createCardsAera, goodsAera, renderBasket} from './render-cards.js';
 
@@ -28,10 +28,19 @@ if (basketArr.length > 0){
     basketGoodsCounter.style.display = "block";
     const result = basketArr.reduce((sum, current) => sum + +current.count, 0);
     basketGoodsCounter.textContent = result;
+    
 }
 
 
-
+btnBasket.addEventListener('click', function(){
+    let basketNull = document.getElementById('modal-basket__null'),
+        basketList = document.getElementById(`basketList`);
+    if (basketArr.length > 0){
+    nullBasket(basketNull, basketList);
+    } else {
+        nullBasket(basketList, basketNull);
+    }
+  })
 
 getData()
 .then(data =>  {
@@ -50,13 +59,13 @@ function main(){
         ++uiFlag;
     
         if(uiFlag > 6 && uiFlag < 18){
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
             topGoodsArr = goodsArr.slice(0,12)
             createCardsAera(topGoodsArr, basketArr);
         }
     
         if(uiFlag >= 18){
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
             topGoodsArr = goodsArr.slice(0,18)
             createCardsAera(topGoodsArr, basketArr);
         }
@@ -81,7 +90,7 @@ function main(){
             let ruleL= rule.join('');
 
             searchArr = goodsArr.filter(item => item.name.includes(ruleU||ruleU));
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
             createCardsAera(searchArr, basketArr);
         }
     }
@@ -91,7 +100,7 @@ function main(){
             slidder.style.display = "none";
             searchArr.length = 0;
             searchArr = goodsArr.filter(item => item.category === category);
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
 
 
             categoryMenu.checked = false;
