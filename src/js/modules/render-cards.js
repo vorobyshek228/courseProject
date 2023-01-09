@@ -30,7 +30,7 @@ const renderCard = function (item, basketArr) {
                 name.textContent = `${item.name}`;
             const id = document.createElement("p");
                 id.classList.add("card__id");
-                id.textContent = `Артикур: ${item.id}`;
+                id.textContent = `Артикул: ${item.id}`;
             const price = document.createElement("div");
                 price.classList.add("card__price");
                 price.innerHTML = `<span class="price">${item.price} р.</span> <span class="userPrice">${(item.price - (item.price * item.discount / 100)).toFixed(2)} р.</span>`;
@@ -73,11 +73,24 @@ const renderCard = function (item, basketArr) {
         cardBusketButton.textContent = '+';
 
         cardBusketButton.addEventListener('click', function(){
-            
+            let flag;
+            const findSameElement = basketArr.map(function(elem, index){
+                if (elem.id == item.id) {
+                    flag = index;
+                    return true;
+                } else {
+                    return flag = -1;
+                }
+            })
+            if (flag >= 0) {
+                basketArr[flag].count ++
+            } else {
             item.count = 1;
             basketArr.push(item);
-
             clearBasket();
+            }
+
+
             renderBasket(basketArr);
             setLocalData(basketArr);
         })
@@ -108,10 +121,8 @@ export const renderBasket = function(arr){
         const name = document.createElement("td");
             name.innerHTML = `${item.name} `;
         const count = document.createElement("td");
-        const num = document.createElement("input");
-            num.setAttribute("type","number");
-            num.setAttribute("value", item.count);
-            num.setAttribute("min","1");
+        const num = document.createElement("span");
+            num.innerHTML = `${item.count}`
         const price = document.createElement("td");
              price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
 

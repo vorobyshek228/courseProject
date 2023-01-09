@@ -90,7 +90,7 @@ function main(){
             let ruleL= rule.join('');
 
             searchArr = goodsArr.filter(item => item.name.includes(ruleU||ruleU));
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
             createCardsAera(searchArr, basketArr);
         }
     }
@@ -100,7 +100,7 @@ function main(){
             slidder.style.display = "none";
             searchArr.length = 0;
             searchArr = goodsArr.filter(item => item.category === category);
-            goodsAera.innerHTML="";
+            goodsAera.innerHTML="<dialog id=modalGoodsCard class=modalGoodsCard> </dialog>";
 
 
             categoryMenu.checked = false;
