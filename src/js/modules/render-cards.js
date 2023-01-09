@@ -162,9 +162,14 @@ export const renderBasket = function(arr){
                 renewCount(item)
             });
             removeCount.addEventListener('click', function(){
-                item.count--;
-                renewCount(item)
-            });
+                if(item.count > 1){
+                    item.count--;
+                    renewCount(item)
+                } else if (item.count > 0){
+                    item.count--;
+                    li.remove();
+                    renewCount(item)
+                };});
         const price = document.createElement("td");
              price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
 
@@ -181,7 +186,8 @@ export const renderBasket = function(arr){
        });
        function renewCount(item){
             num.innerHTML = `${item.count}`;
-            drawTotalPrice()
+            drawTotalPrice();
+            drawBasketGoodsCounter();
             price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
         };
     
