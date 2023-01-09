@@ -1,46 +1,22 @@
 @import "_basketModal";
 @import "_goodsCardModal";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 
-%default {
-  min-height: 200px;
-  border-radius: 15px;
+body {
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
 }
 
 
 ._wrapper {
-  margin: 10px auto;
+  margin: 0 auto;
   max-width: 1440px;
 }
 
-.header {
-  display: flex;
-  gap: 20px;
 
-  button {
-    background-color: hsl(0, 0%, 60%);
-    min-width: 8ch;
-    flex-grow: 0;
-    border-radius: 0.8rem;
-    padding: 0 0.8rem;
-    transition: all 0.2s;
 
-    &:hover {
-      background-color: hsl(0, 0%, 75%);
-      ;
-    }
-
-    &:active {
-      background-color: hsl(0, 0%, 45%);
-      ;
-    }
-  }
-
-  input {
-    flex-grow: 2;
-    border-radius: 0.8rem;
-    padding: 0 0.8rem;
-    text-align: center;
-  }
 
   dialog {
     transition: all 0.2s;
@@ -64,24 +40,22 @@
 
     padding: 1rem;
   }
-}
+
 
 
 
 .slider {
-  // background-color: aqua;
   margin-top: -30px;
-  @extend %default;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
 .goods-aera {
   display: flex;
   align-content: center;
   justify-content: center;
-  //gap: 10px;
   flex-wrap: wrap;
 
   .goods-card {
@@ -203,38 +177,15 @@
 }
 
 
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
-
-body {
-    padding: 0px;
-    margin: 0px;
-    font-size: 16px;
-    font-family: 'Raleway', sans-serif;
-}
-
 header {
     width: 100%;
-    // color: white;
     background-image: url(../img/fon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center top;
     margin-bottom: 40px;
-
-
-    .header__wrapper {
-        max-width: 1440px;
-        margin: 0 auto;
-        // background-color: antiquewhite;
-        // background-image: url(./img/fon.jpg);
-        // background-repeat: no-repeat;
-        // background-size: cover;
-    }
-}
-
-.header__top {
+    
+    .header__top {
     padding-top: 10px;
     display: flex;
     align-items: center;
@@ -264,10 +215,9 @@ header {
             background-color: #807cbb;
             transition: 0.4s;
         }
+      }
     }
-}
-
-.header-logo {
+    .header-logo {
     width: 200px;
 }
 
@@ -302,6 +252,11 @@ header {
 
     }
 }
+}
+
+
+
+
 
 .management {
     display: flex;
@@ -513,17 +468,6 @@ $space-m: 16px;
   }
 }
 
-main {
-    width: 100%;
-
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 220px);
-        justify-content: center;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-}
 
 
 
@@ -540,7 +484,6 @@ main {
 }
 
 .name{
-  // color: #606060;
   font-weight: 500;
 }
 
