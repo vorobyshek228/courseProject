@@ -46,6 +46,7 @@ const renderCard = function (item, basketArr) {
                     setLocalData(basketArr);
 
                     modalGoodsCard.close();
+                   
                 });
             modalGoodsCard.append(card);
             card.append(img, cardInfo);
