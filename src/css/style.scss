@@ -25,7 +25,7 @@ body {
     box-shadow: 0px 5px 10px 2px hsla(0, 0, 10%, 0.5);
 
     &::backdrop {
-      background-color: hsl(0, 0, 1%);
+      background-color: hsl(1, 1, 1);
       opacity: .2;
 
     }
@@ -80,10 +80,11 @@ body {
       border-radius: 15px;
       padding: 0.5em;
       margin: 15%;
-      transition: 0.2s;
+      transition: 0.4s;
       opacity: 0.8;
       visibility: hidden;
-      border-color: grey;
+      border-color: lightgrey;
+      border: none;
 
       &:hover {
         opacity: 1;
@@ -129,6 +130,9 @@ body {
     }
 
     .goods-card-busket-button {
+      background-color: lightgrey;
+      opacity: 0.8;
+      border: none;
       position: absolute;
       bottom: 10px;
       right: 10px;
@@ -163,12 +167,15 @@ body {
       }
 
       &:hover {
-        background-color: blue;
+        background-color: gray;
+        opacity: 0.9;
 
       }
 
       &:active {
-        background-color: aqua;
+        background-color: black;
+        color: white;
+        opacity: 0.9;
       }
 
     }
@@ -245,7 +252,6 @@ header {
         padding-left: 30px;
 
         &:hover {
-            transition: 0.5s;
             background-color: rgb(255, 255, 255);
             transition: 0.4s;
         }
@@ -319,7 +325,9 @@ $space-m: 16px;
         width: 90%;
         height: 4px;
         transition: .4s;
-
+        &:hover{
+          background-color: #f44;
+        }
         &::after,
         &::before {
             content: "";
@@ -329,19 +337,25 @@ $space-m: 16px;
             width: 100%;
             height: 4px;
             transition: .4s;
-        }
 
+        }
+        &:hover::after, &:hover::before{
+          background-color: #f44;
+          transition: .4s;
+        }
         &::after {
             top: 8px;
+
         }
 
         &::before {
             top: -8px;
+
         }
     }
 
     &__container {
-        border-radius: 60px;
+        border-radius: 15px;
         width: 20%;
         position: fixed;
         text-align: center;
@@ -354,15 +368,15 @@ $space-m: 16px;
         z-index: 10;
         height: 0;
         opacity: 1;
-        transition: 2.5s;
+        transition: 0.4s;
         transition-delay: 0.5s;
         overflow: hidden;
         background-color: $primary-color;
     }
 
     &__list {
-        transition: .5s;
-        transition-delay: .5s;
+        transition: .4s;
+        transition-delay: .4s;
         list-style: none;
         padding-left: 0;
         margin-top: -50px;
@@ -381,8 +395,8 @@ $space-m: 16px;
             font-size: 35px;
             padding: 10px;
             background-color: #cba4df;
-            border-radius: 20px;
-            transition: 0.5s;
+            border-radius: 10px;
+            transition: 0.4s;
         }
 
         &:active {
@@ -444,7 +458,7 @@ $space-m: 16px;
     &:hover {
         color: rgb(255, 255, 255);
         cursor: pointer;
-        transition: 0.5s;
+        transition: 0.4s;
     }
 }
 
@@ -460,7 +474,7 @@ $space-m: 16px;
 
   &:hover{
     filter: drop-shadow(1px 1px 3px tomato);
-    transition: 0.2s;
+    transition: 0.4s;
   }
   &:active{
     filter: drop-shadow(1px 1px 5px rgb(145, 88, 237));
