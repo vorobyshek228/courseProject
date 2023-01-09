@@ -213,6 +213,7 @@ dialog::backdrop {
   border-radius: 50%;
   border-width: 1px;
   transition: 0.4s;
+  font-weight: 800;
 }
 .goods-aera .goods-card .goods-card-busket-button::after {
   width: 70px;
@@ -499,6 +500,7 @@ header .header__bottom input:hover {
   color: rgb(255, 255, 255);
   background-color: #f44;
   border-radius: 5px;
+  padding: 2px;
 }
 
 #btnBasket {
