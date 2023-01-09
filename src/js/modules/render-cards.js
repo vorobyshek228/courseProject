@@ -114,14 +114,64 @@ export const renderBasket = function(arr){
         const name = document.createElement("td");
             name.innerHTML = `${item.name} `;
         const count = document.createElement("td");
+        const countDiv = document.createElement('div')
+            countDiv.style.cssText = `
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            `;
         const num = document.createElement("span");
             num.innerHTML = `${item.count}`
+            num.style.cssText = `
+            display: block;
+            `;
+        const addCount = document.createElement('button');
+            addCount.classList.add('count__active');
+            addCount.innerText = '+';
+            addCount.style.cssText = `
+                width: 20px;
+                height: 20px;
+                font-size: 20px;
+                font-family: "Raleway", san-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                border: 0px;
+                background-color: #d74646;
+                cursor: pointer;
+            `;
+            const removeCount = document.createElement('button');
+            removeCount.innerText = '-';
+            removeCount.classList.add('count__active');
+            removeCount.style.cssText = `
+                width: 20px;
+                height: 20px;
+                font-size: 20px;
+                font-family: "Raleway", san-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                border: 0px;
+                background-color: #d74646;
+                cursor: pointer;
+            `;
+            addCount.addEventListener('click', function(){
+                item.count++;
+                renewCount(item)
+            });
+            removeCount.addEventListener('click', function(){
+                item.count--;
+                renewCount(item)
+            });
         const price = document.createElement("td");
              price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
 
         basketList.append(li);
         li.append(img, name, count, price);
-        count.append(num);
+        count.append(countDiv);
+        countDiv.append(removeCount, num, addCount);
         num.addEventListener('change', function(){
             item.count =  this.value;
             price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
@@ -129,6 +179,11 @@ export const renderBasket = function(arr){
             drawTotalPrice();
             drawBasketGoodsCounter();
        });
+       function renewCount(item){
+            num.innerHTML = `${item.count}`;
+            drawTotalPrice()
+            price.innerHTML = `<span class="price">${(item.price * item.count).toFixed(2)} р.</span> <span class="userPrice">${((item.price * item.count - (item.price * item.count * (item.discount / 100)))).toFixed(2)} р.</span>` ;
+        };
     
     })
 
