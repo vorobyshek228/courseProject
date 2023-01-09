@@ -52,7 +52,6 @@ const renderCard = function (item, basketArr) {
             cardInfo.append(name, id, price, button);
             modalGoodsCard.showModal();
             modalGoodsCard.addEventListener("click", closeOnBackDropClick);     
-            // addZoom("zoomC");
         })
 
     let figcaption = document.createElement("figcaption");
@@ -73,23 +72,17 @@ const renderCard = function (item, basketArr) {
         cardBusketButton.textContent = '+';
 
         cardBusketButton.addEventListener('click', function(){
-            let flag;
-            const findSameElement = basketArr.map(function(elem, index){
-                if (elem.id == item.id) {
-                    flag = index;
-                    return true;
-                } else {
-                    return flag = -1;
-                }
-            })
-            if (flag >= 0) {
-                basketArr[flag].count ++
-            } else {
-            item.count = 1;
-            basketArr.push(item);
-            clearBasket();
+            const findSameId = basketArr.map(elem => elem.id);
+            if(findSameId.includes(item.id)){
+                let num = item.count;
+                item.count =  ++num;
+
+            }else{
+                item.count = 1;
+                basketArr.push(item);
             }
 
+            clearBasket();
 
             renderBasket(basketArr);
             setLocalData(basketArr);
