@@ -97,11 +97,16 @@
   background-color: #e71bc5;
 }
 
+.scroll-lock {
+  overflow: hidden;
+}
+
 body {
   padding: 0px;
   margin: 0px;
   font-size: 16px;
   font-family: "Raleway", sans-serif;
+  scrollbar-gutter: stable;
 }
 
 ._wrapper {
