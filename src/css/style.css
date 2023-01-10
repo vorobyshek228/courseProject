@@ -3,6 +3,9 @@
 #modalBasket {
   max-width: 1000px;
 }
+#basketList{
+  border-collapse: collapse;
+}
 button:hover{
   cursor: pointer;
 }
@@ -40,6 +43,8 @@ button:hover{
 #modalBasket img {
   height: 30%;
   width: 30%;
+  display: block;
+  margin: 0 auto;
 }
 #modalBasket .price {
   text-decoration: line-through;
@@ -542,7 +547,6 @@ header .header__bottom input:hover {
 .count__active:hover{
   color:#ffffff;
 }
-
 .noscript p {
   background-color: #f44;
   text-align: center;
