@@ -1,0 +1,47 @@
+#modalBasket {
+    max-width: 1000px;  
+    .basketHeader{
+      display: flex;
+      justify-content: space-between;
+      p{
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+    .btnClearBasket{
+      min-width: 80px;
+      font-family: inherit;
+      appearance: none;
+      border: 0;
+      border-radius: 10px;
+      background: #e40000;
+      color: white;
+      padding: 8px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover {
+        background: #ad0000;
+        
+      }
+      &:focus {
+        box-shadow: 0 0 0 1px #dcb4f7;
+      }
+    }
+    input{
+      all: initial;
+    }
+    img{
+      height: 30%;
+      width: 30%;
+    }
+    .price{
+      text-decoration: line-through;
+      color: grey;
+      margin-right: auto;
+    }
+
+    .userPrice{
+      margin-left: auto;
+    }
+
+  }

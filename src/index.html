@@ -1,13 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slider.css">
+  <title>WB2</title>
 </head>
+
 <body>
-    <script src="js/script.js" type="module"></script>
+  <noscript class="noscript"><p>Ваш браузер не поддерживает скрипты! Этот сайт не сможет работать без Java Script!</p></noscript> 
+  <header>
+    <div class="_wrapper">
+        <div class="header__top">
+            <div class="money">
+            </div>
+            <a class="sale" href="https://seller.wildberries.ru/login/ru?redirect_url=/">Продавайте на
+                Wildberries</a>
+        </div>
+        <div class="header__bottom">
+            <div class="header-menu">
+                <div>
+                    <nav class="mobile-menu">
+                        <input type="checkbox" id="checkbox" class="mobile-menu__checkbox">
+                        <label for="checkbox" class="mobile-menu__btn">
+                            <div class="mobile-menu__icon"></div>
+                        </label>
+                        <div class="mobile-menu__container">
+                            <ul class="mobile-menu__list">
+                                <li id="category-men" class="mobile-menu__item"><a href="#" class="mobile-menu__link">Мужское</a></li>
+                                <li id="category-women" class="mobile-menu__item"><a href="#" class="mobile-menu__link">Женское</a></li>
+                                <li id="category-kids"class="mobile-menu__item"><a href="#" class="mobile-menu__link">Детское</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <button id="btnCatalog">
+                  <img class="header-logo" src="./img/logo.png" alt="logo">
+                </button>
+            </div>
+            <input id="search" type="text" placeholder="Введите название товара">
+            <div class="management">
+                <div id="btnBasket" class="management-menu basket"><img src="./img/basket.png" alt="">
+                  <p>Корзина</p>
+                  <div id='basketGoodsCounter'> 0 </div>    
+                </div>
+                <dialog id="modalBasket">
+                  <div >
+                    <div class="basketHeader" >
+                      <p>Корзина</p>
+                      <button class="btnClearBasket">Очистить корзину</button>
+                    </div>
+                    <p id="modal-basket__null">Вы пока не добавили товары в корзину</p>
+                    <table id="basketList" class="cart__table" style="width:100%" cellpadding="2" border="1">
+                      <thead>  
+                        <tr>
+                          <td >Фото</td>
+                          <td >Название</td>
+                          <td >Количество</td>
+                          <td >Цена</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                      <tfoot>  
+                        <tr>
+                          <td></td>
+                          <td  colspan = "3" id="total-price" >Итого: 0</td>
+                        </tr>
+                      </tfoot>
+                    </table>  
+                  </div>
+                </dialog>
+            </div>
+        </div>
+    </div>
+</header>
+
+  <section id="slider_bl" class="slider _wrapper">
+    <div class="wrapper">
+      <input checked type=radio name="slider" id="slide1" />
+      <input type=radio name="slider" id="slide2" />
+      <input type=radio name="slider" id="slide3" />
+      <input type=radio name="slider" id="slide4" />
+      <div class="slider-wrapper carousel slide" data-mdb-ride="carousel">
+        <div class="inner carousel-inner" >
+          <article>
+            <div class="info top-left">
+            </div>
+            <img src="./img/big_best_1912.jpg" >
+          </article>
+          <article>
+            <div class="info bottom-right">
+            </div>
+            <img src="./img/big_cosmetics1.jpg" />
+          </article>
+          <article>
+            <div class="info bottom-left">
+            </div>
+            <img src="./img/big_delivery_14_12_22.jpg" />
+          </article>
+          <article>
+            <div class="info top-right">
+            </div>
+            <img src="./img/big_toys.jpg" />
+          </article>
+          <article>
+        </div>
+      </div>
+      <div class="slider-prev-next-control">
+        <label for=slide1></label>
+        <label for=slide2></label>
+        <label for=slide3></label>
+        <label for=slide4></label>
+      </div>
+      <div class="slider-dot-control">
+        <label for=slide1></label>
+        &nbsp;
+        <label for=slide2></label>
+        &nbsp;
+        <label for=slide3></label>
+        &nbsp;
+        <label for=slide4></label>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="goods-aera _wrapper">
+    <dialog id="modalGoodsCard" class="modalGoodsCard"> </dialog>
+  </section>
+  <script src="./js/script.js" type="module"></script>
 </body>
+
 </html>

@@ -1,0 +1,543 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+@import "_basketModal";
+@import "_goodsCardModal";
+//@import "_adaptive";
+
+body{
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  scrollbar-gutter: stable;
+}
+
+
+
+._wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+
+
+
+  dialog {
+    transition: all 0.2s;
+    border-style: none;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 2px hsla(0, 0, 10%, 0.5);
+
+    &::backdrop {
+      background-color: hsl(1, 1, 1);
+      opacity: .2;
+
+    }
+
+  }
+
+  .dialog {
+    padding: 0.5rem;
+  }
+
+  .dialog-wrapper {
+
+    padding: 1rem;
+  }
+
+
+
+
+.slider {
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.goods-aera {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .goods-card {
+    width: 160px;
+    height: 240px;
+    position: relative;
+    margin-bottom: 10em;
+
+    .goods-card--img {
+      position: relative;
+      border-radius: 15px;
+      height: 100%;
+      width: 100%;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-button {
+      position: absolute;
+      width: 70%;
+      left: 0;
+      bottom: 70px;
+      border-radius: 15px;
+      padding: 0.5em;
+      margin: 15%;
+      transition: 0.4s;
+      opacity: 0.8;
+      visibility: hidden;
+      border-color: lightgrey;
+      border: none;
+
+      &:hover {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .goods-card--img:hover+.card-button {
+      visibility: visible;
+    }
+
+
+    .goods-card--pricing {
+      position: relative;
+      border-radius: 15px;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .goods-card--pricing {
+      display: flex;
+    }
+
+    .price {
+      text-decoration: line-through;
+      color: grey;
+      margin-right: auto;
+    }
+
+    .user-price {
+      margin-left: auto;
+    }
+
+    .diskont {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+    }
+
+    .goods-card--image-info {
+      margin-bottom: -3em;
+    }
+
+    .goods-card-busket-button {
+      background-color: lightgrey;
+      opacity: 0.8;
+      border: none;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      border-width: 1px;
+      transition: 0.4s;
+      font-weight: 800;
+
+      &::after {
+        width: 70px;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+        color: #FFF;
+        content: "Добавить в корзину";
+        margin-top: 0px;
+        opacity: 0;
+        padding: 8px;
+        position: absolute;
+        bottom: -5px;
+        left: 35px;
+        visibility: hidden;
+        z-index: 2;
+
+        transition: all 0.4s ease-in-out;
+      }
+
+      &:hover::after {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &:hover {
+        background-color: gray;
+        opacity: 0.9;
+
+      }
+
+      &:active {
+        background-color: black;
+        color: white;
+        opacity: 0.9;
+      }
+
+    }
+
+  }
+}
+
+
+header {
+    width: 100%;
+    background-image: url(../img/fon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    margin-bottom: 40px;
+    
+    .header__top {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    width: 330px;
+    justify-content: space-around;
+    padding-bottom: 20px;
+
+    .money {
+        display: flex;
+
+        .byn {
+            width: 20px;
+            margin-right: 8px;
+        }
+    }
+
+    .sale {
+        color: rgb(255, 255, 255);
+        padding: 8px 1px 2px 12px;
+        width: 215px;
+        height: 25px;
+        border-radius: 20px;
+        background-color: #9793cf;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #807cbb;
+            transition: 0.4s;
+        }
+      }
+    }
+    .header-logo {
+    width: 200px;
+}
+
+.header__bottom {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    justify-content: space-around;
+    padding-bottom: 20px;
+
+    .header-menu {
+        display: flex;
+        width: 310px;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    input {
+        width: 65%;
+        height: 55px;
+        border: 1px solid rgb(59, 157, 176);
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0.4);
+        font-size: 15px;
+        padding-left: 30px;
+
+        &:hover {
+            background-color: rgb(255, 255, 255);
+            transition: 0.4s;
+        }
+
+    }
+}
+}
+
+
+
+
+
+.management {
+    display: flex;
+    width: 210px;
+    justify-content: space-around;
+
+
+    .management-menu {
+        width: 80px;
+        height: 60px;
+        align-items: center;
+
+        img {
+            width: 26px;
+            padding-left: 22px;
+        }
+
+        p {
+            margin-top: 5px;
+            text-align: center;
+        }
+    }
+}
+
+
+
+
+// Бургер меню
+
+$primary-color: #9793cf;
+$space-m: 16px;
+
+.mobile-menu {
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 $space-m;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 9999999;
+
+    &__btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 30px;
+        cursor: pointer;
+        transition: .4s;
+    }
+
+    &__icon {
+        display: block;
+        position: relative;
+        background: rgba(255, 255, 255, 1);
+        width: 90%;
+        height: 4px;
+        transition: .4s;
+        &:hover{
+          background-color: #f44;
+        }
+        &::after,
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            background: rgba(255, 255, 255, 1);
+            width: 100%;
+            height: 4px;
+            transition: .4s;
+
+        }
+        &:hover::after, &:hover::before{
+          background-color: #f44;
+          transition: .4s;
+        }
+        &::after {
+            top: 8px;
+
+        }
+
+        &::before {
+            top: -8px;
+
+        }
+    }
+
+    &__container {
+        border-radius: 15px;
+        width: 20%;
+        position: fixed;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        left: -500px;
+        right: 0;
+        z-index: 10;
+        height: 0;
+        opacity: 1;
+        transition: 0.4s;
+        //transition-delay: 0.5s;
+        overflow: hidden;
+        background-color: $primary-color;
+    }
+
+    &__list {
+        transition: .4s;
+        //transition-delay: .4s;
+        list-style: none;
+        padding-left: 0;
+        margin-top: -50px;
+    }
+
+    &__item {
+        font-size: 26px;
+        padding-bottom: 25px;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #fff;
+
+        &:hover {
+            font-size: 35px;
+            padding: 10px;
+            background-color: #cba4df;
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+
+        &:active {
+            color: #9793cf;
+            background-color: #ffffff;
+            transition: 0s;
+        }
+    }
+
+    &__checkbox {
+        display: none;
+
+        &:checked~ {
+            .mobile-menu {
+
+                &__nav {
+                    opacity: 1;
+                    transition-delay: 0s;
+                }
+
+                &__container {
+                    top: 180px;
+                    height: 80%;
+                    transition-delay: 0s;
+                    width: 20%;
+                    min-width: 180px;
+                    left: 10px;
+                }
+
+                &__btn {
+                    .mobile-menu__icon {
+                        background: transparent;
+
+                        &::before,
+                        &::after {
+                            top: 0;
+                        }
+
+                        &::after {
+                            transform: rotate(-45deg);
+                            // -webkit-transform: rotate(-45deg);
+                        }
+
+                        &::before {
+                            transform: rotate(45deg);
+                            // -webkit-transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.address,
+.enter,
+.basket {
+    &:hover {
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        transition: 0.4s;
+    }
+}
+
+.convert__block-item {
+    background-color: #9793cf;
+}
+
+
+#btnCatalog{
+  background-color: transparent;
+  border: 1px solid #0489e200;
+  cursor: pointer;
+
+  &:hover{
+    filter: drop-shadow(1px 1px 3px tomato);
+    transition: 0.4s;
+  }
+  &:active{
+    filter: drop-shadow(1px 1px 5px rgb(145, 88, 237));
+    transition: 0s;
+  }
+}
+
+
+
+
+
+
+
+.price{
+  font-weight: 500;
+}
+
+.user-price{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.name{
+  font-weight: 500;
+}
+
+.diskont{
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background-color: #f44;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+#btnBasket{
+  position: relative;
+}
+
+#basketGoodsCounter{
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: #f44;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  padding-top: 0.2rem;
+  width: 1.2rem;
+  height: 1rem;
+  text-align: center;
+}
+
+.noscript{
+  p{
+    background-color: #f44;
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
