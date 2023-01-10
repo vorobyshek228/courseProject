@@ -37,8 +37,10 @@ btnBasket.addEventListener('click', function(){
         basketList = document.getElementById(`basketList`);
     if (basketArr.length > 0){
     nullBasket(basketNull, basketList);
+    btnClearBasket.style.display = 'block';
     } else {
         nullBasket(basketList, basketNull);
+        btnClearBasket.style.display = 'none';
     }
   })
 
