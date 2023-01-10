@@ -3,7 +3,6 @@ export const modalBasket= document.querySelector('#modalBasket');
 
 btnBasket.addEventListener('click', function(){
     modalBasket.showModal();
-    document.body.classList.add("scroll-lock");
 });
 
 export const btnClearBasket = document.querySelector('.btnClearBasket');
@@ -23,7 +22,6 @@ export function closeOnBackDropClick({ currentTarget, target }) {
   const isClickedOnBackDrop = target === dialogElement
   if (isClickedOnBackDrop) {
     dialogElement.close();
-    document.body.classList.remove("scroll-lock");
   }
 }
 export function nullBasket(deletedItem, shownItem) {
