@@ -1,4 +1,4 @@
-import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket, nullBasket} from './basket.js'; 
+import {btnBasket, modalBasket, btnClearBasket, clearBasket, nullBasket} from './basket.js'; 
 import {getData, getLocalData, setLocalData, removeLocalData, valideLocalData} from './data.js';
 import {createCardsAera, goodsAera, renderBasket} from './render-cards.js';
 
