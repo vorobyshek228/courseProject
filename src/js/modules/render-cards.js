@@ -49,7 +49,6 @@ const renderCard = function (item, basketArr) {
                     }
         
                     clearBasket();
-        
                     renderBasket(basketArr);
                     setLocalData(basketArr);
 
