@@ -139,8 +139,7 @@ export const renderBasket = function(arr){
                 align-items: center;
                 border-radius: 50%;
                 border: 0px;
-                background-color: #e40000;
-                cursor: pointer;
+                background-color: #f44;
             `;
             const removeCount = document.createElement('button');
             removeCount.innerText = '-';
@@ -155,7 +154,8 @@ export const renderBasket = function(arr){
                 align-items: center;
                 border-radius: 50%;
                 border: 0px;
-                background-color: #e40000;
+                background-color: #f44;
+
                 cursor: pointer;
             `;
             addCount.addEventListener('click', function(){

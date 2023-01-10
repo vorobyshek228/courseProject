@@ -1,4 +1,4 @@
-import {btnBasket, modalBasket, btnClearBasket, totalPrice, clearBasket, nullBasket} from './basket.js'; 
+import {btnBasket, modalBasket, btnClearBasket, clearBasket, nullBasket} from './basket.js'; 
 import {getData, getLocalData, setLocalData, removeLocalData, valideLocalData} from './data.js';
 import {createCardsAera, goodsAera, renderBasket} from './render-cards.js';
 
@@ -37,8 +37,10 @@ btnBasket.addEventListener('click', function(){
         basketList = document.getElementById(`basketList`);
     if (basketArr.length > 0){
     nullBasket(basketNull, basketList);
+    btnClearBasket.style.display = 'block';
     } else {
         nullBasket(basketList, basketNull);
+        btnClearBasket.style.display = 'none';
     }
   })
 
