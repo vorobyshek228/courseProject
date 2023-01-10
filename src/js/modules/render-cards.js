@@ -38,10 +38,18 @@ const renderCard = function (item, basketArr) {
                 button.classList.add("card__button");
                 button.textContent = 'Добавить в корзину';
                 button.addEventListener('click', function(){
-                    item.count = 1;
-                    basketArr.push(item);
+                    const findSameId = basketArr.map(elem => elem.id);
+                    if(findSameId.includes(item.id)){
+                        let num = item.count;
+                        item.count =  ++num;
+        
+                    }else{
+                        item.count = 1;
+                        basketArr.push(item);
+                    }
         
                     clearBasket();
+        
                     renderBasket(basketArr);
                     setLocalData(basketArr);
 
